@@ -10,66 +10,60 @@
 	color: #fff;
 	font-weight: bold;
 }
+.style3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
 -->
 </style>
 </head>
 
 <body>
-<table width="287" height="264" border="1" bordercolor="#FFFFFF" bgcolor="#0033CC">
+<table width="701" height="328" border="1" bordercolor="#FFFFFF" bgcolor="#0033CC">
   <tr>
-    <td width="78" height="58" bgcolor="#0033CC"><img src="file:///C|/xamp1/htdocs/bsc/img/unair.jpg" width="88" height="76" /></td>
-    <td width="193" colspan="3" bgcolor="#0033CC"><div align="center" class="style1">BALANCED SCORECARD </div></td>
+    <td width="89" height="58" bgcolor="#0033CC"><img src="file:///C|/xamp1/htdocs/bsc/img/unair.jpg" width="88" height="76" /></td>
+    <td width="596" colspan="3" bgcolor="#0033CC"><div align="center" class="style1">BALANCED SCORECARD </div></td>
   </tr>
   <tr>
-    <td height="198" colspan="4" bgcolor="#FFFFFF"><table width="280" height="99" border="1" bgcolor="#FFFFFF">
+    <td height="240" colspan="4" bgcolor="#FFFFFF"><table width="680" height="94" border="1" bgcolor="#FFFFFF">
       <tr>
-        <td>Perspektif : </td>
-        <td><form id="form1" name="form1" method="post" action="">
-          <label>
-          <select name="select">
-          </select>
-		  font-family:Garamond; font-size:24px; margin-left:10px;">
-                        <?php
-						include 'proker.php';
-						$q2 = mysql_query("select * from nama_proker");
-						while ($row2 = mysql_fetch_array($q2)){
-							echo "<option value=$row2[id_proker]>$row2[nama_proker]</option>";
+					<td width="670"><p><span class="style3">Tujuan</span> <strong>:</strong>
+					    <select name="transmisi" style="width:300px; height:35px; border:1px dotted #333333; border-radius:4px; -moz-border-radius:4px; font-family:Garamond; font-size:24px; margin-left:10px;">
+					      <?php
+						include 'koneksi.php';
+						$tujuan = mysql_query("select * from tujuan");
+						while ($row2 = mysql_fetch_array($tujuan)){
+							echo "<option value=$row2[ID_TUJUAN]>$row2[TUJUAN_ORGANISASI]</option>";
 						}
 						?>
-          </label>
-        </form>        </td>
-        </tr>
-      <tr>
-        <td>Tujuan : </td>
-        <td><form id="form2" name="form2" method="post" action="">
-          <label>
-            <select name="select2">
+				        </select>
+					</p>
+		  <p class="style3">Nama Proker : 
+		    <select name="select" style="width:300px; height:35px; border:1px dotted #333333; border-radius:4px; -moz-border-radius:4px; font-family:Garamond; font-size:24px; margin-left:10px;">
+              <?php
+					 $proker = mysql_query("select p.nama_proker from tujuan t, 
+					 menunjang m, proker p, indikator_tujuan i where t.ID_TUJUAN = i.ID_TUJUAN and i.ID_INDIKATOR_TUJUAN = m.ID_INDIKATOR_TUJUAN 
+					 and m.ID_PROKER = p.ID_PROKER and t.TUJUAN_ORGANISASI = "" );
+					 while($p=mysql_fetch_array($proker)){
+					 	echo "<option value=$row2[ID_PROKER]>$row2[NAMA_PROKER]</option>";
+}
+?>
             </select>
-            </label>
-        </form>        </td>
-        </tr>
-      <tr>
-        <td height="26">Nama Proker : </td>
-        <td><form id="form3" name="form3" method="post" action="">
-          <label>
-            <select name="select3">
-            </select>
-            </label>
-        </form>        </td>
-        </tr>
+		  </p></td>
+		</tr>
     </table>
-      <form id="form4" name="form4" method="post" action="">
+      <form id="form1" name="form1" method="post" action="">
         <label>
         <div align="right">
-          <input type="submit" name="Submit" value="Hapus" />
+          <input name="delete" type="submit" id="delete" value="delete" />
+		  
         </div>
         </label>
-    </form>      <p align="right">&nbsp;</p></td>
-	
+      </form>
+    </td>
   </tr>
 </table>
 
 </body>
-
 
 </html>

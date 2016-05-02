@@ -54,7 +54,7 @@ function MM_validateForm() { //v4.0
 <div class="theme-login-title">
   <table width="200" border="1">
     <tr>
-      <td width="26%" height="22" bgcolor="#0066CC"><img src="file:///C|/xamp1/htdocs/bsc/img/unair.jpg" width="122" height="80"></td>
+      <td width="26%" height="22"><img src="file:///C|/Users/Andri/Pictures/unair.jpg" width="123" height="114"></td>
       <td width="74%"> <div align="center"><span class="style1">BALANCED SCORE CARD</span> </div></td>
     </tr>
   </table>
@@ -62,16 +62,18 @@ function MM_validateForm() { //v4.0
 		
 <div class="theme-login-form">
 			
-<form action="cek_login.php" method="post">
+<form action="proseslogin.php" method="post">
 						
 <table height="207" border="0" cellpadding="0" cellspacing="0">
 							
 
 <tr>
 								
-<td width="110" align="right" valign="top">NIP/NIK</td>
+<td width="110" align="right" valign="top"><p>NIP</p>
+  </td>
 								
-<td width="30" align="center" valign="top">:</td>
+<td width="30" align="center" valign="top"><p>:</p>
+  </td>
 								
 <td><input name="NIP/NIK" type="text" id="NIP/NIK" onBlur="MM_validateForm('NIP/NIK','','NisNum');return document.MM_returnValue" size="25" required="required" /></tr>
 
@@ -94,7 +96,7 @@ function MM_validateForm() { //v4.0
    
      <div align="right">
        <p onfocus="MM_validateForm('NIP/NIK','','RisNum','password','','R');return document.MM_returnValue">
-         <input type="submit" name="submit" value="Login" onClick="alert('NIK/NIP dan Password tidak sesuai. Silahkan masukkan kembali NIK/NIP dan Password dengan benar!');MM_validateForm('NIP/NIK','','RisNum','password','','R');return document.MM_returnValue">
+         <input type="submit" name="submit" value="Login" ; MM_validateForm('NIP/NIK','','RisNum','password','','R');return document.MM_returnValue">
        </p>
        </div>     
      <div align="right">
