@@ -1,8 +1,4 @@
-<?php include "koneksi.php";
-
-
-
-?>
+<?php include "koneksi.php";?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -105,10 +101,7 @@
   					echo "<input type=\"checkbox\" name=\"check_list[]\" value=\"".$data2['ID_INDIKATOR_TUJUAN']."\"/> ".$data2['NAMA_INDIKATOR_TUJUAN']."<br>";
   				}
 				}
-				
-				
 				?>
-			
 			
 			<label>Koordinator</label>
 			<select name="koordinator" style="width:100%" class="form-control" >
@@ -126,12 +119,8 @@
 			<label>Target Waktu</label> <br>
 			<input type="date" id="coldate1" name="coldate1">
 			<input type="date" id="coldate2" name="coldate2"><br>
-
-			
 			<input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ;"/>
 		</form>
-		
-		
 		<?php 
 		if(isset($_POST['simpan']))
 		{
@@ -139,16 +128,10 @@
 			{
 				$sql = "INSERT INTO proker (NAMA_PROKER,NIP,WAKTU_MULAI_PROKER,WAKTU_AKHIR_PROKER,STATUS_PROKER) VALUES ('".$_POST['proker']."','".$_POST['koordinator']."','".$_POST['coldate1']."','".$_POST['coldate2']."','Belum terlaksana')";
 				mysql_query($sql);
-				
-				
-				
-				
+			
 				$sql = "SELECT ID_PROKER from proker WHERE NAMA_PROKER ='".$_POST['proker']."'";
 				$query = mysql_query($sql);
-				
-				
-				
-				
+			
 				$data2 = mysql_fetch_array($query);
 				$checklist = $_POST['check_list'];
 				$size = sizeof($checklist);
@@ -161,7 +144,6 @@
 			}
 			else
 			{
-			
 			}
 			
 		}
