@@ -46,7 +46,7 @@
       			<label class="control-label col-sm-2">Nama Proker :</label>
       		<div class="col-sm-10">
             <?php
-			$queri="Select * From proker where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel siswa  
+			$queri="Select * From proker where ID_PROKER=".$_GET['id1'];  //menampikan SEMUA data dari tabel siswa  
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
@@ -58,20 +58,21 @@
          	<div class="form-group">
       			<label class="control-label col-sm-2">Notifikasi :</label>
      		<div class="col-sm-10">
-     		  <textarea name="dp" rows="5" class="form-control" id="dp" type="text">
+     		  <form name="notif" method="post" action="inputnotif1.php" >
+              <textarea name="Notifikasi" rows="5" class="form-control" id="dp" type="text">
         	  </textarea>
      		  <br>
       		</div>
       </div>	
          <div class="col-sm-14 text-right">
        <input class="btn btn-primary" type="submit" name="Submit" value="Simpan"/><br>
-       
+       <form/>
 		<?php 
 		if(isset($_POST['Submit']))
 		{
-			if($_POST['Notifikasi']!=NULL)
+			if($_POST['Notifikasi']!="")
 			{
-				$sql = "INSERT INTO notifikasi (NOTIFIKASI) VALUES ('".$_POST['Notifikasi']."')";// db
+				$sql = "INSERT INTO notifikasi (NOTIFIKASI,ID_PROKER) VALUES ('".$_POST['Notifikasi']."',".$_GET['id1'].")";// db
 				mysql_query($sql);
 				
 			}
