@@ -59,7 +59,7 @@ $(document).ready(function(){
 						while ($t = mysql_fetch_array($tujuan)){
 								echo "<option value=\"$t[id_tujuan]\">$t[tujuan_organisasi]</option>\n"; 
 								}
-						?>
+		?>
 	    </select>
 	  </p>
 	<p><span class="style4">Nama Proker :</span>	    </p>
@@ -67,11 +67,14 @@ $(document).ready(function(){
 	  <select name="proker" id="proker" style="width:300px; height:35px; border:1px dotted #333333; border-radius:4px; -moz-border-radius:4px; font-family:Garamond; font-size:24px; margin-left:10px;">
 	  <option>--Pilih Proker--</option>
 	  
+	   
+	  
 	    </select>
 	  </p>
 	<p align="right">
-	<form method="post" action="kelascoba.php">
 	  <input name="Delete" type="submit" id="Delete" value="Hapus" />
+	  
+	
 	  
 	  </form>
 	</p></td>
