@@ -53,46 +53,57 @@ $host = 'localhost';
 	<p align="center"><button type="button" class="btn btn-primary btn-block disabled">Input BSC</button></p>
 	 <p align="center"><a href="editbsc.php"><button type="button" class="btn btn-primary btn-block active">Edit BSC</button></a></p>
 	</p>
-	<label>
-	<div align="center"><strong>Prespeektif</strong>
-	  </label>
-	</div>
+	
+  <p align="center">&nbsp; </p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+            <h2 align="center" class="text-center">Input Balance Score Card</h2>
 			
-    </p>
-      <p align="center">
-        <label></label>
-      </p>
+			<label>
+	        <div align="left"><strong>Prespeektif</strong>
+              </label>
+              </div>
+	        <label></label>
+     
       
         
 		<form id="form2" name="form2" method="post" action="inputbsc.php">
-		  <div align="center">
+		  
 		    <select name="Perspektif" style="width:100%" class="form-control" >
 				<option value="">Pilih Perspektif</option> 
 				<option value="Customer">Customer</option>
 				<option value="Proses bisnis intenal">Proses bisnis intenal</option>
 				<option value="Finansial">Finansial</option>
-				<option value="Pekembangan dan pembelajaan">Pekembangan dan pembelajaan</option>
+				<option value="Pertumbuhan dan pembelajaran">Pertumbuhan dan pembelajaran</option>
 					
         </select>
 			<label>
-        <div align="center"><br><label>
-        <div align="center">Tujuan</div>
-        </label>
-			<input name="Tujuan" class="form-control" >
-			<p align="center"><strong>Indikator</strong></p>
-			<input name="Indikator1" class="form-control" >
-			
-			
-			
-			
-			<input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ;"/>
-          </div>
+       <br><label>
+          <div align="left">Tujuan</div>
+          </label>
+			<div align="left">
+			  <input name="Tujuan" class="form-control" >
+			</div>
+			<label>
+			<div align="left">Indikator</div>
+			</label>
+		  <div align="left">
+		   
+			  <input name="Indikator1" class="form-control" > 
+			  </p>
+			  
+			  
+			  
+			  
+			  
+			  
+			  <input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ;"/>
+		  </div></div>
 		</form>
       
 		
-        </p>
-<p align="center">&nbsp;    </p>
-  <p align="center">
+    
+
     <label></label>
   
   <?php 
@@ -102,9 +113,15 @@ $host = 'localhost';
 			
 				$sql = "INSERT INTO tujuan (TUJUAN_ORGANISASI, PERSPEKTIF) VALUES ('".$_POST['Tujuan']."','".$_POST['Perspektif']."')";
 				mysql_query($sql);
+				
+				$sql = "SELECT * FROM tujuan WHERE TUJUAN_ORGANISASI ='".$_POST['Tujuan']."'";
+				$query = mysql_query($sql);
+  				$data2 = mysql_fetch_array($query);
+				
 			if($_POST['Indikator1']!=NULL){	
-			$sql = "INSERT INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN) VALUES ('".$_POST['Indikator1']."')";
+			$sql = "INSERT INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$_POST['Indikator1']."',".$data2['ID_TUJUAN'].")";
 				mysql_query($sql);
+				
 			}}
 			else
 			{
@@ -115,10 +132,6 @@ $host = 'localhost';
 		?>
     </div>
     </form>
-  <p align="center">&nbsp; </p>
-    </div>
-    <div class="col-sm-8 text-left"> 
-            <h2 align="center" class="text-center">Input Balance Score Card</h2>
     </div>
   </div>
 </div>
