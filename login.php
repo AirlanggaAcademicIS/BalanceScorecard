@@ -76,8 +76,7 @@ function MM_validateForm() { //v4.0
   </td>
 								
 <td><input name="NIP/NIK" type="text" id="NIP/NIK" onBlur="MM_validateForm('NIP/NIK','','NisNum');return document.MM_returnValue" size="25" required="required" /></tr>
-
-							
+						
 <tr>
 								
 <td width="110" align="right" valign="top">Password</td>
