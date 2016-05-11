@@ -88,7 +88,7 @@ while ($data = mysql_fetch_array ($hasil)){
         <td>".$data[2]."</td>  
         <td>".$data[3]."</td>  
 		<td>".$data[4]."</td>  
-		<td><a href=\"viewdetaillpj.php?id=".$data['id']."\">"."Detail</a> "."
+		<td><a href=\"viewdetaillpj.php?id=".$id."\">"."Detail</a> "."
         </tr>   
         ";            
 		}    
