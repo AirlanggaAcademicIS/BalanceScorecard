@@ -41,10 +41,10 @@ include "koneksi.php";
   <div class="row content">
     <div class="col-sm-2 sidenav">       
 		<img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
+		<br></br>
      	<p><button type="button" class="btn btn-primary btn-block disabled ">View BSC</button></p>
 	 	<p><a href="inputbsc.php"><button type="button" class="btn btn-primary btn-block active">Input BSC</button></a></p>
 	 	<p><a href="editbsc.php"><button type="button" class="btn btn-primary btn-block active">Edit BSC</button></a></p>
-	 	<p><a href="deletebsc.php"><button type="button" class="btn btn-primary btn-block active">Delete BSC</button></a></p>
     </div>
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Balance Score Card</h2>
@@ -61,18 +61,18 @@ include "koneksi.php";
 							echo '<tr>';
 							if($jum <= 1) {
 							echo '<td align="center" rowspan="'.$row['jumlah'].'">'.$no.'</td>';
-							echo '<td rowspan="'.$row['jumlah'].'">'.$row['PERSPEKTIF'].'</td>';
+							echo '<td rowspan="'.$row['jumlah'].'">'.ucwords($row['PERSPEKTIF']).'</td>';
 							$jum = $row['jumlah'];       
 							$no++;                     
 							} else {
 							$jum = $jum - 1;
 							}
-							echo "<td>"."<a href=\"viewproker.php\">".$row['TUJUAN_ORGANISASI']."</a></td>";
+							echo "<td>"."<a href=\"viewproker.php\">".ucwords($row['TUJUAN_ORGANISASI'])."</a></td>";
 							echo "<td>";
 							$id_tujuan=$row['id_tujuan'];
 							$query = mysql_query("SELECT nama_indikator_tujuan FROM indikator_tujuan WHERE id_tujuan='$id_tujuan'");
 								while ($data = mysql_fetch_array($query)){
-									echo "<a href=\"viewproker.php\">".$data['nama_indikator_tujuan']."</a>";
+									echo "<a href=\"viewproker.php\">".ucwords($data['nama_indikator_tujuan'])."</a>";
 									echo "</br>";
 								}
 							echo "</td>";
