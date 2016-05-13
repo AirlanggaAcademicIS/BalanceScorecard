@@ -60,13 +60,18 @@
   <h2 class="text-center">Input Program Kerja</h2>
   <form id="form2" name="form2" method="post" action="inputdetailprokerrefisi1.php">
   		
-            <h3>Program Kerja :</h3>
-        <div class="panel panel-default">
-      <div class="panel-body">
-        Menjalin kerjasama dengan Stakeholder
-      </div>
-    </div>
-    
+     <div class="form-group">
+      			<label class="control-label col-sm-2">Nama Proker :</label>
+      		<div class="col-sm-10">
+           	<?php
+			$queri1="Select NAMA_PROKER From proker";
+	  		$hasil1=MySQL_query ($queri1);
+			while ($data = mysql_fetch_array ($hasil1)){
+				echo "<input type='text'  class='form-control' id='namaproker' disabled value='".$data['NAMA_PROKER']."'><br>";
+			}
+				?> 
+     		 </div>
+        </div>    
     <div class="form-group">
    		<h3>Pendahuluan :</h3>
 		<textarea name="pendahuluan" textarea class="form-control" rows="5" id="comment"></textarea>
@@ -100,9 +105,7 @@
     Putratama Geza
   </div>
   </div>
-
-    <input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ;"/>
-  
+<input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ;"/>
   <?php
 if(isset ($_POST['simpan'])){
 
@@ -110,7 +113,6 @@ echo $_GET['id'];
 
 mysql_query("UPDATE `proker` SET `ANGGARAN_DANA`='".$_POST['anggaran']."',`LATAR_BELAKANG`='".$_POST['latarbelakang']."',`TUJUAN`='".$_POST['tujuan']."',`MEKANISME_DAN_RANCANGAN`='".$_POST['mekanisme_rancangan']."',`PENDAHULUAN`='".$_POST['pendahuluan']."' WHERE ID_PROKER =1");
 }
-
 ?>
 </form>
 </div>
