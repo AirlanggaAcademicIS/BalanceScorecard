@@ -43,10 +43,20 @@
     <div class="col-sm-8 text-left"> 
     	<h2 class="text-center">Input Program Kerja</h2>
       	<label>Nama Proker</label>
-		<form id="form2" name="form2" method="post">
-			<input name="proker" class="form-control" > 
+		<form id="form2" name="form2" method="post" action="inputproker.php">
+			
+			<input name="proker" class="form-control" 
+			<?php 
+			if(isset($_POST['proker'])){
+				if($_POST['proker']!=NULL){
+					echo "value=\"".$_POST['proker']."\"";
+				}	
+			}
+			?>
+			> 
 			<label>Tujuan</label>
-			<select name="tujuan" style="width : 100%" class="form-control" id="tujuan">
+			
+			<select name="tujuan" style="width : 100%" class="form-control" id="tujuan" onChange='this.form.submit();'>
 				<option value="">Pilih tujuan</option>
 				<option value="">------ Finansial -----</option>
 				<?php $data = "select * from tujuan where perspektif ='Finansial'";
@@ -54,7 +64,13 @@
  		 		$query = mysql_query($data);
   				while($data2 = mysql_fetch_array($query))
   				{
-  					echo "<option value=\"".$data2['ID_TUJUAN']."\">".$data2['TUJUAN_ORGANISASI']."</option>";
+					echo "<option value=\"".$data2['ID_TUJUAN']."\"";
+					if(isset($_POST['tujuan']))
+					if($_POST['tujuan']==$data2['ID_TUJUAN'])
+					{
+						echo "selected=\"selected\"";
+					}
+					echo ">".$data2['TUJUAN_ORGANISASI']."</option>";
   				}
 				?>
 				
@@ -64,7 +80,13 @@
  		 		$query = mysql_query($data);
   				while($data2 = mysql_fetch_array($query))
   				{
-  					echo "<option value=\"".$data2['ID_TUJUAN']."\">".$data2['TUJUAN_ORGANISASI']."</option>";
+  					echo "<option value=\"".$data2['ID_TUJUAN']."\"";
+					if(isset($_POST['tujuan']))
+					if($_POST['tujuan']==$data2['ID_TUJUAN'])
+					{
+						echo "selected=\"selected\"";
+					}
+					echo ">".$data2['TUJUAN_ORGANISASI']."</option>";
   				}
 				?>
 				
@@ -74,7 +96,13 @@
  		 		$query = mysql_query($data);
   				while($data2 = mysql_fetch_array($query))
   				{
-  					echo "<option value=\"".$data2['ID_TUJUAN']."\">".$data2['TUJUAN_ORGANISASI']."</option>";
+  					echo "<option value=\"".$data2['ID_TUJUAN']."\"";
+					if(isset($_POST['tujuan']))
+					if($_POST['tujuan']==$data2['ID_TUJUAN'])
+					{
+						echo "selected=\"selected\"";
+					}
+					echo ">".$data2['TUJUAN_ORGANISASI']."</option>";
   				}
 				?>
 				
@@ -84,24 +112,32 @@
  		 		$query = mysql_query($data);
   				while($data2 = mysql_fetch_array($query))
   				{
-  					echo "<option value=\"".$data2['ID_TUJUAN']."\">".$data2['TUJUAN_ORGANISASI']."</option>";
+  					echo "<option value=\"".$data2['ID_TUJUAN']."\"";
+					if(isset($_POST['tujuan']))
+					if($_POST['tujuan']==$data2['ID_TUJUAN'])
+					{
+						echo "selected=\"selected\"";
+					}
+					echo ">".$data2['TUJUAN_ORGANISASI']."</option>";
   				}
 				?>
 				
 			</select>
-			<input type="submit" name="tampilkan" value="Tampilkan Indikator" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ;" ><br> 
+			    
+				<input type ="checkbox" name="check_list[]" value="" style="display:none" checked="checked">
 				<?php 
-			
-				if(isset($_POST['tampilkan'])){
+				
+				
+				if(isset($_POST['tujuan'])){
 				$data = "select i.ID_INDIKATOR_TUJUAN, i.NAMA_INDIKATOR_TUJUAN from tujuan t, indikator_tujuan i where t.ID_TUJUAN = i.ID_TUJUAN and t.ID_TUJUAN = '".$_POST['tujuan']."'";
  		 		$query = mysql_query($data);
-				
   				while($data2 = mysql_fetch_array($query))
   				{
   					echo "<input type=\"checkbox\" name=\"check_list[]\" value=\"".$data2['ID_INDIKATOR_TUJUAN']."\"/> ".$data2['NAMA_INDIKATOR_TUJUAN']."<br>";
   				}
-				}
+				}				
 				?>
+			
 			
 			<label>Koordinator</label>
 			<select name="koordinator" style="width:100%" class="form-control" >
@@ -111,27 +147,51 @@
  		 		$query = mysql_query($data);
   				while($data2 = mysql_fetch_array($query))
   				{
-  					echo "<option value=\"".$data2['NIP']."\">".$data2['NAMA']."</option>";
+  					
+					echo "<option value=\"".$data2['NIP']."\"";
+					if(isset($_POST['koordinator']))
+					if($_POST['koordinator']==$data2['NIP'])
+					{
+						echo "selected=\"selected\"";
+					}
+					echo ">".$data2['NAMA']."</option>";	
   				}
 				?>
 			</select>
 			
 			<label>Target Waktu</label> <br>
-			<input type="date" id="coldate1" name="coldate1">
-			<input type="date" id="coldate2" name="coldate2"><br>
+			<input type="date" id="coldate1" name="coldate1"
+			<?php 
+			if(isset($_POST['coldate1']))
+			if($_POST['coldate1']!=NULL)
+			echo "value=\"".$_POST['coldate1']."\"";
+			?>
+			>
+			
+			<input type="date" id="coldate2" name="coldate2"
+			<?php 
+			if(isset($_POST['coldate2']))
+			if($_POST['coldate2']!=NULL)
+			echo "value=\"".$_POST['coldate2']."\"";
+			?>
+			><br>
+
+			
 			<input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ;"/>
 		</form>
+		
+		
 		<?php 
 		if(isset($_POST['simpan']))
 		{
-			if($_POST['proker']!=NULL&&$_POST['tujuan']!="")
+			if($_POST['proker']!=NULL&&$_POST['tujuan']!=""&&$_POST['koordinator']!=""&&$_POST['coldate1']!=NULL&&$_POST['coldate2']!=NULL&&sizeof($_POST['check_list'])!=1)
 			{
 				$sql = "INSERT INTO proker (NAMA_PROKER,NIP,WAKTU_MULAI_PROKER,WAKTU_AKHIR_PROKER,STATUS_PROKER) VALUES ('".$_POST['proker']."','".$_POST['koordinator']."','".$_POST['coldate1']."','".$_POST['coldate2']."','Belum terlaksana')";
 				mysql_query($sql);
-			
+				
 				$sql = "SELECT ID_PROKER from proker WHERE NAMA_PROKER ='".$_POST['proker']."'";
 				$query = mysql_query($sql);
-			
+				
 				$data2 = mysql_fetch_array($query);
 				$checklist = $_POST['check_list'];
 				$size = sizeof($checklist);
@@ -141,20 +201,53 @@
 					$sql = "INSERT INTO menunjang (ID_PROKER, ID_INDIKATOR_TUJUAN) VALUES ('".$data2['ID_PROKER']."','".$checklist[$i]."')";
 					mysql_query($sql);
 				}
+				
+				echo "Data berhasil disimpan";
+				
 			}
 			else
 			{
-			}
-			
+				echo"Anda belum memasukkan data :";
+				if($_POST['proker']==NULL)
+				{
+					echo "<br>- Nama proker";
+				}
+				
+				if($_POST['tujuan']==NULL)
+				{
+					echo "<br>- Tujuan";
+				}
+				
+				if($_POST['koordinator']==NULL)
+				{
+					echo "<br>- Nama koordinator";
+				}
+				
+				if($_POST['coldate1']==NULL)
+				{
+					echo "<br>- Tanggal mulai proker";
+				}
+				
+				if($_POST['coldate2']==NULL)
+				{
+					echo "<br>- Tanggal akhir proker";
+				}
+				
+				if($_POST['tujuan']!="")
+				{
+					$tess = $_POST['check_list'];
+					$size = sizeof($tess);
+					if($size==1)
+					echo "<br>- Indikator tujuan";
+				}
+			}			
 		}
 		?>
         </div>
         </div>	 
     </div>
-
 <footer class="container-fluid text-center">
   <p>Sistem Informasi Universitas Airlangga</p>
 </footer>
-
 </body>
 </html>
