@@ -42,9 +42,9 @@
 	</div>
     <div class="col-sm-8 text-left"> 
     	<h2 class="text-center">Input Program Kerja</h2>
-      	<label>Nama Proker</label>
+      	
 		<form id="form2" name="form2" method="post" action="inputproker.php">
-			
+			<label>Nama Proker</label>
 			<input name="proker" class="form-control" 
 			<?php 
 			if(isset($_POST['proker'])){
