@@ -1,11 +1,83 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Balance Scorecard Universitas Airlangga</title>
+  <title>Balance Score Card</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a href="index.php">Home</a></li>
+        <li><a href="viewbsc.php">Balance Score Card</a></li>
+        <li class="active"><a href="viewproker.php">Program Kerja</a></li>
+        <li><a href="viewlpj.php"> Laporan Pertanggung Jawaban</a></li>
+		<li><a href="monitoring.php">Monitoring</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">             
+		<img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
+		<br></br>
+    	<p><a href="viewproker.php"><button type="button" class="btn btn-primary btn-block active">View Proker</button></p>
+	 	<p><a href="inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
+	 	<p><button type="button" class="btn btn-primary btn-block disabled">Delete Proker</button></a></p>
+	</div>
+    <div class="col-sm-8 text-left"> 
+		<h2 class="text-center">Delete Proker</h2>
+			<?php
+			include 'koneksi.php';
+        	?>
+        	<form method="post" action="deleteproker.php">
+            <p>&nbsp;</p>
+            <p>
+              <select id="tujuan" name="tujuan">
+                <option value="">--Pilih Tujuan--</option>
+                <?php
+                $tujuan = mysql_query("SELECT tujuan_organisasi, id_tujuan FROM tujuan ORDER BY tujuan_organisasi");
+                while ($t = mysql_fetch_array($tujuan)) {
+                echo "<option value=\"$t[id_tujuan]\">$t[tujuan_organisasi]</option>\n"; 
+                }
+                ?>
+              </select>
+              
+              
+              <select id="proker" name="proker">
+                <option value="">--Pilih Proker--</option>
+              </select>
+              </p>
+            <p>
+              <input name="hapus" type="submit" id="hapus" value="Hapus" />
+            </p>
+      </form>
+		
+		
+        <script src="jquery-1.10.2.min.js"></script>
+        <script src="jquery.chained.min.js"></script>
+        <script>
+            $("#proker").chained("#tujuan");
+        </script>
+		<script type="text/javascript">
 var htmlobjek;
 $(document).ready(function(){
 
@@ -24,62 +96,15 @@ $(document).ready(function(){
 });
 
 </script>
+		
 
-<style type="text/css">
-<!--
-.style2 {
-	color: #FFFFFF;
-	font-size: 37px;
-	font-family: Arial, Helvetica, sans-serif;
-}
-.style4 {
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: bold;
-}
--->
-</style>
-</head>
+    </div>
+  </div>
+</div>
 
-<body>
-<table width="459" height="325" border="1" bordercolor="#000000" bgcolor="#000000">
-  <tr>
-    <td width="62" height="75"><img src="file:///C|/xamp1/htdocs/bsc1/images/f.gif" width="78" height="71" /></td>
-    <td width="285"><div align="center"><span class="style2"><strong>Delete Proker</strong> </span></div></td>
-  </tr>
-  <tr>
-    <td colspan="2" bgcolor="#FFFFFF">
-	
-	<p><span class="style4">Tujuan : </span>	  </p>
-	<p>
-	  <select name="tujuan" id="tujuan" style="width:300px; height:35px; border:1px dotted #333333; border-radius:4px; -moz-border-radius:4px; font-family:Garamond; font-size:24px; margin-left:10px;">
-	  <option>--Pilih Tujuan--</option>
-	    <?php
-						include 'koneksi.php';
-						$tujuan = mysql_query("select t.tujuan_organisasi, t.id_tujuan from tujuan t ");
-						while ($t = mysql_fetch_array($tujuan)){
-								echo "<option value=\"$t[id_tujuan]\">$t[tujuan_organisasi]</option>\n"; 
-								}
-		?>
-	    </select>
-	  </p>
-	<p><span class="style4">Nama Proker :</span>	    </p>
-	<p>
-	  <select name="proker" id="proker" style="width:300px; height:35px; border:1px dotted #333333; border-radius:4px; -moz-border-radius:4px; font-family:Garamond; font-size:24px; margin-left:10px;">
-	  <option>--Pilih Proker--</option>
-	  
-	   
-	  
-	    </select>
-	  </p>
-	<p align="right">
-	  <input name="Delete" type="submit" id="Delete" value="Hapus" />
-	  
-	
-	  
-	  </form>
-	</p></td>
-  </tr>
-</table>
+<footer class="container-fluid text-center">
+  <p>Sistem Informasi Universitas Airlangga</p>
+</footer>
+
 </body>
-
 </html>
