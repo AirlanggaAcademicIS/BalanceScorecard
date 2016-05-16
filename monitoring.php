@@ -53,7 +53,6 @@ include "koneksi.php"
 				<option value="">--Pilih--</option>
 					<?php
 						$q2 = mysql_query("SELECT DISTINCT date_format(WAKTU_MULAI_PROKER, '%Y') as bulantahun FROM proker order by WAKTU_MULAI_PROKER ASC");
-						echo '<form method="POST" action="monitoring.php">';
 						while ($row2 = mysql_fetch_array($q2)){
 						if ($_POST['tahun'] == $row2['bulantahun'])
 							echo "<option value=".$row2['bulantahun']." selected>".$row2['bulantahun']."</option>";
@@ -63,7 +62,7 @@ include "koneksi.php"
       			</select>
       <br>
     </div>
-			</form>
+			
 	<div class="box-body table-responsive">
 		<table class="table table-hover">
     		<tbody>
@@ -102,11 +101,17 @@ include "koneksi.php"
     		</tbody>
   		</table>
 		<!--<input type="submit" name="print" value="Print" class="btn btn-info">-->
-		
+		</form>
 		<form action="print.php" method="post">
+			<?php if (isset($_POST['tahun'])){
+					  $tahun=$_POST['tahun'];
+					  }
+				  else{
+				  	  $tahun="";}
+			?>
 			<div class="btn-group">
-				<button type="submit" class="btn btn-default" name="print" value="print">Print Semua</button>
-				<button type="submit" class="btn btn-default" name="print" value="print">Print Tahun Terpilih</button>
+				<button type="submit" class="btn btn-default" name="printsemua" value="printsemua">Print Semua</button>
+				<button type="submit" class="btn btn-default" name="printterpilih" value="printterpilih">Print Tahun Terpilih</button>
 			</div>
 		</form>
 	  </div><!-- /.box-body -->

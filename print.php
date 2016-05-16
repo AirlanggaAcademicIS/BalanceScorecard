@@ -3,9 +3,17 @@ include 'koneksi.php';
 require('fpdf/fpdf.php');
 
 //Menampilkan data dari tabel di database
-
+$result;
+if(isset($_POST['printsemua'])){
 $result=mysql_query("SELECT id_proker, nama_proker, tujuan, anggaran_dana, status_proker, waktu_mulai_proker, waktu_akhir_proker FROM proker 
-WHERE status_proker='TERLAKSANA' OR status_proker='TIDAK TERLAKSANA' ORDER BY id_proker") or die(mysql_error());
+WHERE status_proker='TERLAKSANA' OR status_proker='TIDAK TERLAKSANA' ORDER BY id_proker") or die(mysql_error());}
+else{
+$tahun=isset($_POST['tahun']);
+echo $tahun;
+$result=mysql_query("SELECT id_proker, nama_proker, tujuan, anggaran_dana, status_proker, waktu_mulai_proker, waktu_akhir_proker FROM proker 
+WHERE DATE_FORMAT(WAKTU_MULAI_PROKER,'%Y')='$tahun' ORDER BY id_proker") or die(mysql_error());
+}
+
 
 //Inisiasi untuk membuat header kolom
 $column_id = "";
