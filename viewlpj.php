@@ -42,7 +42,7 @@
             <h2 class="text-center">Laporan Pertanggung Jawaban</h2>
 				<form id="form1" name="form1" method="post" action="viewlpj.php">
 				<label for="sel1">Tahun</label>            
-				<select class="form-control" name="tahun">
+				<select class="form-control" name="tahun" onChange='this.form.submit();'>
 				<option>Tahun</option>
  			<?php 
  				for($i=2016;$i<=2021;$i++)
@@ -51,7 +51,6 @@
 					 }
 					?>
   		</select>
-  <br><input class="btn btn-primary" type="submit" name="Submit" value="Tampilkan"/>
   </form>
 	<br>
             <div class="box-body table-responsive">
@@ -63,38 +62,38 @@
                             <th>Nama Proker</th>
                             <th>Evaluasi</th>
                             <th>Keberlanjutan</th>
-                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
  <?php 
-    
-if(isset($_POST['Submit'])){
-if($_POST['tahun']!="Tahun"){
-	
-// Perintah untuk menampilkan data  
- 
-$queri="Select distinct l.id_lpj, p.nama_proker, l.evaluasi, l.keberlanjutan, p.status_proker From laporan_pertanggung_jawaban l, proker p where l.id_proker=p.id_proker and YEAR(WAKTU_MULAI_PROKER) = \"".$_POST['tahun']."\"";
+if($_POST['tahun']!="Tahun"){	
+$queri="Select distinct l.id_lpj, p.nama_proker, l.evaluasi, l.keberlanjutan From laporan_pertanggung_jawaban l, proker p where l.id_proker=p.id_proker and YEAR(WAKTU_MULAI_PROKER) = \"".$_POST['tahun']."\"";
 $hasil=MySQL_query ($queri);    //fungsi untuk SQL  
-$id = 0;  
-// perintah untuk membaca dan mengambil data dalam bentuk array  
+$id = 0;
 while ($data = mysql_fetch_array ($hasil)){  
- $id++; 
- echo "      
-        <tr>  
-        <td>".$id."</td>
-		<td>".$data[0]."</td>  
-        <td>".$data[1]."</td>  
-        <td>".$data[2]."</td>  
-        <td>".$data[3]."</td>  
-		<td>".$data[4]."</td>  
-		<td><a href=\"viewdetaillpj.php?id=".$id."\">"."Detail</a> "."
-        </tr>   
-        ";            
-		}    
-	}
-}
-?>  
+ 			$id++; 
+ 			echo "      
+        			<tr>  
+        			<td>".$id."</td>
+					<td>".$data[0]."</td>  
+        			<td>".$data[1]."</td>  
+        			<td>".$data[2]."</td>  
+        			<td>".$data[3]."</td>  
+					<td><a href=\"viewdetaillpj.php?id=".$id."\">"."Detail</a> "."
+        		</tr>   
+        	";      
+			}
+				if($id==0){
+		echo "<div class='alert alert-danger  alert-dismissable'>
+                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+               Data tidak ada
+                </div>";
+		}
+	
+		} 
+	
+	
+ ?>  
 </table><br><br><br><br><br>
             </div>
         </div>	
