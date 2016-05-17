@@ -42,7 +42,7 @@
     
     <div class="col-sm-8 text-left"> 
        <h2 class="text-center">Detail LPJ</h2>
-        	<div class="form-group">
+        	<div class="form-group"  action="print.php" method="POST">
       			<label class="control-label col-sm-2">ID LPJ :</label>
       		<div class="col-sm-10">
            <?php
@@ -74,6 +74,18 @@
 	  		$hasil1=MySQL_query ($queri1);
 			while ($data = mysql_fetch_array ($hasil1)){
 				echo "<input type='text'  class='form-control' id='namaproker' disabled value='".$data['NAMA_PROKER']."'><br>";
+			}
+				?> 
+     		 </div>
+        </div>
+         <div class="form-group">
+      			<label class="control-label col-sm-2">Tujuan :</label>
+      		<div class="col-sm-10">
+           	<?php
+			$queri1="Select p.TUJUAN From laporan_pertanggung_jawaban l, proker p where l.ID_LPJ=p.ID_LPJ and l.ID_LPJ=".$_GET['id'];
+	  		$hasil1=MySQL_query ($queri1);
+			while ($data = mysql_fetch_array ($hasil1)){
+				echo "<input type='text'  class='form-control' id='namaproker' disabled value='".$data['TUJUAN']."'><br>";
 			}
 				?> 
      		 </div>
@@ -137,9 +149,6 @@
 				?> 
      		 </div>
         </div>	    
-
-         	
-        
     </div>
     </div>
 </div>
