@@ -130,29 +130,29 @@ create table TUJUAN
 auto_increment = 1;
 
 alter table INDIKATOR_PROKER add constraint FK_MEMILIKI1 foreign key (ID_PROKER)
-      references PROKER (ID_PROKER) on delete restrict on update restrict;
+      references PROKER (ID_PROKER) on delete cascade on update cascade;
 
 alter table INDIKATOR_TUJUAN add constraint FK_MEMILIKI foreign key (ID_TUJUAN)
-      references TUJUAN (ID_TUJUAN) on delete restrict on update restrict;
+      references TUJUAN (ID_TUJUAN) on delete cascade on update cascade;
 
 alter table LAPORAN_PERTANGGUNG_JAWABAN add constraint FK_MEMPUNYAI2 foreign key (ID_PROKER)
-      references PROKER (ID_PROKER) on delete restrict on update restrict;
+      references PROKER (ID_PROKER) on delete cascade on update cascade;
 
 alter table MENUNJANG add constraint FK_MENUNJANG foreign key (ID_INDIKATOR_TUJUAN)
-      references INDIKATOR_TUJUAN (ID_INDIKATOR_TUJUAN) on delete restrict on update restrict;
+      references INDIKATOR_TUJUAN (ID_INDIKATOR_TUJUAN) on delete cascade on update cascade;
 
 alter table MENUNJANG add constraint FK_MENUNJANG2 foreign key (ID_PROKER)
-      references PROKER (ID_PROKER) on delete restrict on update restrict;
+      references PROKER (ID_PROKER) on delete cascade on update cascade;
 
 alter table NOTIFIKASI add constraint FK_PUNYA foreign key (ID_PROKER)
-      references PROKER (ID_PROKER) on delete restrict on update restrict;
+      references PROKER (ID_PROKER) on delete cascade on update cascade;
 
 alter table PROKER add constraint FK_KOORDINATOR foreign key (NIP)
-      references KARYAWAN (NIP) on delete restrict on update restrict;
+      references KARYAWAN (NIP) on delete cascade on update cascade;
 
 alter table PROKER add constraint FK_MEMPUNYAI foreign key (ID_LPJ)
-      references LAPORAN_PERTANGGUNG_JAWABAN (ID_LPJ) on delete restrict on update restrict;
+      references LAPORAN_PERTANGGUNG_JAWABAN (ID_LPJ) on delete cascade on update cascade;
 
 alter table PROKER add constraint FK_PUNYA2 foreign key (ID_NOTIFIKASI)
-      references NOTIFIKASI (ID_NOTIFIKASI) on delete restrict on update restrict;
+      references NOTIFIKASI (ID_NOTIFIKASI) on delete cascade on update cascade;
 
