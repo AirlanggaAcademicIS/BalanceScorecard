@@ -41,27 +41,31 @@
     </div>
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Detail Program Kerja</h2>
-      <div class="form-group method="post" action="viewdetailproker.php">
-      		<label class="control-label col-sm-2">ID Proker :</label>
-      <div class="col-sm-10">
+      		<form name="form2" method="post" action="viewdetailproker.php">
+      		
+     
        <?php
 			$queri="Select * From proker where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel siswa  
 	  		$hasil=MySQL_query ($queri);
-			
+		
 			while ($data = mysql_fetch_array ($hasil)){
-				echo "<input type='text'  class='form-control' id='idproker' disabled value='".$data['ID_PROKER']."'><br>";
+				echo "<input type='text'  class='form-control' name='idproker' value='".$data['ID_PROKER']."' style='display:none'><br>";
 			}
 				?>    	
-      </div>
+     
       <div class="form-group">
-      		<label class="control-label col-sm-2">NIP :</label>
+      		<label class="control-label col-sm-2">Nama Koordinator :</label>
       <div class="col-sm-10">
        <?php
 			$queri="Select * From proker where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel siswa  
 	  		$hasil=MySQL_query ($queri);
+			$data = mysql_fetch_array ($hasil);
+			
+			$queri="Select * From karyawan where NIP='".$data['NIP']."'";  //menampikan SEMUA data dari tabel siswa  
+	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
-				echo "<input type='text'  class='form-control' id='nip' disabled value='".$data['NIP']."'><br>";
+				echo "<input type='text'  class='form-control' name='nip' disabled value='".$data['NAMA']."'><br>";
 			}
 				?>    	
       </div>
@@ -73,21 +77,18 @@
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
-				echo "<input type='text'  class='form-control' id='namaproker' disabled value='".$data['NAMA_PROKER']."'><br>";
+				echo "<input type='text'  class='form-control' name='namaproker' disabled value='".$data['NAMA_PROKER']."'><br>";
 			}
 				?>    	
       </div>
     </div>
-    <div class="form-group">
+     <div class="form-group">
       	<label class="control-label col-sm-2">Pendahuluan :</label>
      	<div class="col-sm-10">
          <?php
-			$queri="Select * From proker where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel siswa  
-	  		$hasil=MySQL_query ($queri);
 			
-			while ($data = mysql_fetch_array ($hasil)){
-				echo "<textarea class='form-control' id='pendahuluan' >".$data['PENDAHULUAN']."</textarea><br>";
-			}
+				echo "<textarea class='form-control' name='pendahuluan' > </textarea><br>";
+			
 				?> 
       </div>	
     </div>
@@ -95,12 +96,9 @@
       	<label class="control-label col-sm-2">Latar Belakang :</label>
      	<div class="col-sm-10">
          <?php
-			$queri="Select * From proker where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel siswa  
-	  		$hasil=MySQL_query ($queri);
 			
-			while ($data = mysql_fetch_array ($hasil)){
-				echo "<textarea class='form-control' id='latarbelakang' >".$data['LATAR_BELAKANG']."</textarea><br>";
-			}
+				echo "<textarea class='form-control' name='latarbelakang' > </textarea><br>";
+			
 				?> 
       </div>	
     </div>
@@ -108,39 +106,21 @@
       	<label class="control-label col-sm-2">Tujuan :</label>
      	<div class="col-sm-10">
         <?php
-			$queri="Select * From proker where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel siswa  
-	  		$hasil=MySQL_query ($queri);
 			
-			while ($data = mysql_fetch_array ($hasil)){
-				echo "<textarea class='form-control' id='tujuan' >".$data['TUJUAN']."</textarea><br>";
-			}
+				echo "<textarea class='form-control' name='tujuan' > </textarea><br>";
+			
 				?> 
       </div>	
     </div>
-      <div class="form-group">
-      	<label class="control-label col-sm-2">Deskripsi :</label>
-     	<div class="col-sm-10">
-         <?php
-			$queri="Select * From proker where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel siswa  
-	  		$hasil=MySQL_query ($queri);
-			
-			while ($data = mysql_fetch_array ($hasil)){
-				echo "<textarea class='form-control' id='deskripsi' >".$data['DESKRIPSI']."</textarea><br>";
-			}
-				?> 
-      </div>	
-    </div>
+      
     
     <div class="form-group">
       	<label class="control-label col-sm-2">Mekanisme dan Rancangan :</label>
      	<div class="col-sm-10">
          <?php
-			$queri="Select * From proker where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel siswa  
-	  		$hasil=MySQL_query ($queri);
 			
-			while ($data = mysql_fetch_array ($hasil)){
-				echo "<textarea class='form-control' id='mekanisme_rancangan' >".$data['MEKANISME_DAN_RANCANGAN']."</textarea><br>";
-			}
+				echo "<textarea class='form-control' name='mekanisme_rancangan' > </textarea><br>";
+		
 				?> 
       </div>	
     </div>
@@ -150,27 +130,26 @@
       		<label class="control-label col-sm-2">Anggaran :</label>
       <div class="col-sm-10">
          <?php
-			$queri="Select * From proker where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel siswa  
-	  		$hasil=MySQL_query ($queri);
 			
-			while ($data = mysql_fetch_array ($hasil)){
-				echo "<input type='text'  class='form-control' id='anggaran' value='".$data['ANGGARAN_DANA']."'><br>";
-			}
+				echo "<input type='text'  class='form-control' name='anggaran'><br>";
+			
 				?>    
       </div>
     </div>
     <input type="submit" name="simpan" value="Simpan" class="btn btn-primary"/><br><br><br><br><br>  
-    <?php
+    </form>
+	<?php
 if(isset ($_POST['simpan'])){
 
 
 
-mysql_query("UPDATE `proker` SET `ANGGARAN_DANA`='".$_POST['anggaran']."',`LATAR_BELAKANG`='".$_POST['latarbelakang']."',`TUJUAN`='".$_POST['tujuan']."',`MEKANISME_DAN_RANCANGAN`='".$_POST['mekanisme_rancangan']."',`PENDAHULUAN`='".$_POST['pendahuluan']."' WHERE ID_PROKER =".$_GET['id']);
+mysql_query("UPDATE `proker` SET `ANGGARAN_DANA`='".$_POST['anggaran']."',`LATAR_BELAKANG`='".$_POST['latarbelakang']."',`TUJUAN`='".$_POST['tujuan']."',`MEKANISME_DAN_RANCANGAN`='".$_POST['mekanisme_rancangan']."',`PENDAHULUAN`='".$_POST['pendahuluan']."' WHERE ID_PROKER =".$_REQUEST['idproker']);
+
 }
 ?>
 			</div> 
 		</div>
-	</div>
+	
 </div>
 <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
