@@ -49,9 +49,9 @@ $host = 'localhost';
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-    <p align="center"><a href="../viewbsc.php"> <button type="button" class="btn btn-primary btn-block active ">View BSC</button></a></p>
+    <p align="center"><a href="viewbsc.php"> <button type="button" class="btn btn-primary btn-block active ">View BSC</button></a></p>
 	<p align="center"><button type="button" class="btn btn-primary btn-block disabled">Input BSC</button></p>
-	 <p align="center"><a href="../editbsc.php"><button type="button" class="btn btn-primary btn-block active">Edit BSC</button></a></p>
+	 <p align="center"><a href="editbsc.php"><button type="button" class="btn btn-primary btn-block active">Edit BSC</button></a></p>
 	</p>
 	
   <p align="center">&nbsp; </p>
@@ -144,6 +144,12 @@ $host = 'localhost';
 				}}}}}}
 			else
 			{
+			 if(isset($_POST['simpan'])){
+			
+
+echo "<script>alert('maaf data anda belum lengkap');</script>";
+}
+
 			
 			}
 			}
