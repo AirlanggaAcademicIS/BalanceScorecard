@@ -32,7 +32,7 @@
       <ul class="nav navbar-nav">
         <li ><a href="index.php">Home</a></li>
         <li><a href="#">Balance Score Card</a></li>
-        <li><a href="proker.php">Program Kerja</a></li>
+        <li class="active"><a href="viewprokerkaprodi.php">Program Kerja</a></li>
         <li class="active"><a href="#">Laporan Pertanggung Jawaban</a></li>
       </ul>
     </div>
@@ -55,7 +55,21 @@
                 notif
               </caption>
               <tr>
-                <td>&nbsp;</td>
+                <td>&nbsp; 
+				<?php
+			$queri="Select * From notifikasi where ID_NOTIFIKASI=".$_GET['id1'];  //menampikan SEMUA data dari tabel notifikasi  
+	  		$hasil=MySQL_query ($queri);
+			
+			
+			while ($data = mysql_fetch_array ($hasil)){
+				echo $data['NOTIFIKASI'];
+
+			}
+			
+			if ($hasil= NULL){
+			echo "notifikasi belum di input";}
+			
+				?>    	</td>
               </tr>
             </table>
     </div>
