@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://services.iperfect.net/js/IP_generalLib.js"></script>
  
 </head>
 <body>
@@ -44,19 +45,27 @@
     	<h2 class="text-center">Input Program Kerja</h2>
       	
 		<form id="form2" name="form2" method="post" action="inputproker.php">
-			<label>Nama Proker</label>
-			<input name="proker" class="form-control" 
+			
+			<div class="form-group">
+		<label class="control-label col-sm-2">Nama Proker</label>
+       <div class="col-sm-10">
+       <input name="proker" class="form-control" 
 			<?php 
+			
 			if(isset($_POST['proker'])){
 				if($_POST['proker']!=NULL){
 					echo "value=\"".$_POST['proker']."\"";
 				}	
 			}
 			?>
-			> 
-			<label>Tujuan</label>
+			> <br>
+         		</div> 
+    	    </div>
 			
-			<select name="tujuan" style="width : 100%" class="form-control" id="tujuan" onChange='this.form.submit();'>
+			<div class="form-group">
+		<label class="control-label col-sm-2">Tujuan</label>
+       <div class="col-sm-10">
+	   <select name="tujuan" style="width : 100%" class="form-control" id="tujuan" onChange='this.form.submit();return null;'>
 				<option value="">Pilih tujuan</option>
 				<option value="">------ Finansial -----</option>
 				<?php $data = "select * from tujuan where perspektif ='Finansial'";
@@ -123,24 +132,36 @@
 				?>
 				
 			</select>
+	   <br>
+         		</div> 
+    	    </div>
+			
+			
 			    
 				<input type ="checkbox" name="check_list[]" value="" style="display:none" checked="checked">
 				<?php 
 				
 				
-				if(isset($_POST['tujuan'])){
+				if(isset($_POST['tujuan'])&&$_POST['tujuan']){
 				$data = "select i.ID_INDIKATOR_TUJUAN, i.NAMA_INDIKATOR_TUJUAN from tujuan t, indikator_tujuan i where t.ID_TUJUAN = i.ID_TUJUAN and t.ID_TUJUAN = '".$_POST['tujuan']."'";
  		 		$query = mysql_query($data);
+				echo "<div class=\"form-group\">
+		<label class=\"control-label col-sm-2\">Indikator</label>
+       <div class=\"col-sm-10\">";
   				while($data2 = mysql_fetch_array($query))
   				{
-  					echo "<input type=\"checkbox\" name=\"check_list[]\" value=\"".$data2['ID_INDIKATOR_TUJUAN']."\"/> ".$data2['NAMA_INDIKATOR_TUJUAN']."<br>";
+  					echo "<div class=\"checkbox\"><label><input type=\"checkbox\" name=\"check_list[]\" value=\"".$data2['ID_INDIKATOR_TUJUAN']."\"/> ".$data2['NAMA_INDIKATOR_TUJUAN']."</label></div>";
   				}
+				echo "<br>
+         		</div> 
+    	    </div>";
 				}				
 				?>
 			
-			
-			<label>Koordinator</label>
-			<select name="koordinator" style="width:100%" class="form-control" >
+			<div class="form-group">
+		<label class="control-label col-sm-2">Koordinator</label>
+       <div class="col-sm-10">
+	   	<select name="koordinator" style="width:100%" class="form-control" >
 				<option value="">Pilih koordinator</option> 
 				<?php $data = "select * from karyawan";
 				
@@ -158,26 +179,38 @@
   				}
 				?>
 			</select>
+	   <br>
+         		</div> 
+    	    </div>
 			
-			<label>Target Waktu</label> <br>
-			<input type="date" id="coldate1" name="coldate1"
+			<div class="form-group">
+		<label class="control-label col-sm-2">Target Waktu</label>
+       <div class="col-sm-5">
+	   <input type="text" id="coldate1" name="coldate1" class="IP_calendar" alt="date" title="Y/m/d" style="width:100%" 
 			<?php 
 			if(isset($_POST['coldate1']))
 			if($_POST['coldate1']!=NULL)
 			echo "value=\"".$_POST['coldate1']."\"";
 			?>
 			>
+			</div>
 			
-			<input type="date" id="coldate2" name="coldate2"
+			<div class="col-sm-5">
+			<input type="text" id="coldate2" name="coldate2" class="IP_calendar" alt="date" title="Y/m/d" style="width:100%"
 			<?php 
 			if(isset($_POST['coldate2']))
 			if($_POST['coldate2']!=NULL)
 			echo "value=\"".$_POST['coldate2']."\"";
 			?>
-			><br>
-
+			>
 			
-			<input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ;"/>
+			
+	   <br>
+         		</div> 
+    	    </div>
+			
+			<div class="form-group"><div class="col-sm-12">
+			 <input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ; float:right;"/><br><br><br></div></div>
 		</form>
 		
 		
@@ -202,11 +235,11 @@
 					mysql_query($sql);
 				}
 				
-				echo "Data berhasil disimpan";
-				
+				echo "<div class=\"form-group\"><div class=\"col-sm-12\"><div class=\"alert alert-success\">Data berhasil disimpan.</div></div></div>";
 			}
 			else
 			{
+				echo "<div class=\"form-group\"><div class=\"col-sm-12\"><div class=\"alert alert-danger alert alert-dismissable\">";
 				echo"Anda belum memasukkan data :";
 				if($_POST['proker']==NULL)
 				{
@@ -240,7 +273,8 @@
 					if($size==1)
 					echo "<br>- Indikator tujuan";
 				}
-			}			
+				echo "</div></div></div>";
+			}
 		}
 		?>
         </div>
