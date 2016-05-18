@@ -1,4 +1,4 @@
-<?php include "koneksi.php"?>
+<?php include "koneksi.php"?> //menyambungkan ke database
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,8 +45,8 @@
         	<div class="form-group">
       			<label class="control-label col-sm-2">Nama Proker :</label>
       		<div class="col-sm-10">
-            <?php
-			$queri="Select * From proker where ID_PROKER=".$_GET['id1'];  //menampikan SEMUA data dari tabel siswa  
+           <?php
+			$queri="Select * From proker where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel 
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
@@ -72,7 +72,7 @@
 		{
 			if($_POST['Notifikasi']!="")
 			{
-				$sql = "INSERT INTO notifikasi (NOTIFIKASI,ID_PROKER) VALUES ('".$_POST['Notifikasi']."',".$_GET['id1'].")";// db
+				$sql = "INSERT INTO notifikasi (NOTIFIKASI,ID_PROKER) VALUES ('".$_POST['Notifikasi']."',".$_GET['id'].")";// db
 				mysql_query($sql);
 				
 			}
@@ -82,6 +82,9 @@
 			}
 			
 		}
+		 
+		 $sql="UPDATE proker SET ID_NOTIFIKASI =$id";     
+  
 		?>
        </div>
     </div>
