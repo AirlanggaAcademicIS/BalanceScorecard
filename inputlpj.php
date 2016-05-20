@@ -50,7 +50,7 @@ $_SESSION['idnya']=$_GET['id'];
 	   if(isset($_POST['Submit']))
 	   {
 	   		
-			if(!empty(trim($_POST['keberlanjutan']))&&!empty(trim($_POST['eval'])))
+			if(!empty(trim($_POST['keberlanjutan']))&&!empty(trim($_POST['eval']))&&$_FILES['myFile']['name'] != "")
 			{
 				$sql = "INSERT INTO laporan_pertanggung_jawaban (EVALUASI, KEBERLANJUTAN, ID_PROKER) VALUES('".$_POST['eval']."','".$_POST['keberlanjutan']."',".$_REQUEST['idproker'].")";			$query = mysql_query($sql);
 				
@@ -60,8 +60,48 @@ $_SESSION['idnya']=$_GET['id'];
 				
 				$sql2 = "UPDATE proker SET ID_LPJ = ".$data2['ID_LPJ']." WHERE ID_PROKER = ".$_REQUEST['idproker'];
 				mysql_query($sql2);
-				echo "<div class=\"form-group\"><div class=\"col-sm-12\"><div class=\"alert alert-success\">Data berhasil disimpan.</div></div></div>";
+				
+				if(isset($_FILES["myFile"]["error"]))
+				{
+   					if($_FILES["myFile"]["error"] > 0){
+ 						echo "Error: " . $_FILES["myFile"]["error"] . "<br>";
+					} 
+					else
+					{
+       					$allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png", "pdf" => "application/pdf", "doc" => "application/msword", "docx" => "application/msword");
+       					$filename = $_FILES["myFile"]["name"];
+      					$filetype = $_FILES["myFile"]["type"];
+      					$filesize = $_FILES["myFile"]["size"];
+     					// Verify file extension
+      					$ext = pathinfo($filename, PATHINFO_EXTENSION);
+      					if(!array_key_exists($ext, $allowed)) die("Error: Please select a valid file format.");
+     					// Verify file size - 5MB maximum
+     					$maxsize = 5 * 1024 * 1024;
+    					if($filesize > $maxsize) die("Error: File size is larger than the allowed limit.");
+     					// Verify MYME type of the file
+     					if(in_array($filetype, $allowed)){
+        				// Check whether file exists before uploading it
+        					if(file_exists("" . $_SESSION['idnya'])){
+             					echo $_SESSION['idnya'] . " is already exists.";
+							} 
+							else
+							{
+           						move_uploaded_file($_FILES["myFile"]["tmp_name"], "" . $_SESSION['idnya'] .".". end(explode(".", $_FILES["myFile"]["name"])));
+								
+           					} 
+						} 
+						else
+						{
+          					echo "Error: There was a problem uploading your file - please try again."; 
+    					}
+					}
+				} 
+				else
+				{
+				 	echo "Error: Invalid parameters - please contact your server administrator.";
+				}
 				echo "<meta http-equiv='Refresh' content='0; url=viewproker.php'>";
+				echo "<div class=\"form-group\"><div class=\"col-sm-12\"><div class=\"alert alert-success\">Data berhasil disimpan.</div></div></div>";
 			}
 			else
 			{
@@ -75,13 +115,17 @@ $_SESSION['idnya']=$_GET['id'];
 				{
 					echo "<br>- Evaluasi";
 				}
+				if ($_FILES['myFile']['name'] == "")
+				{
+   				 	echo "<br>- Upload file LPJ";
+				}
 				echo "</div></div></div>";
 			}
 	   }
 	   ?>
 	 
 	 
-	 <form name = "form" action="inputlpj.php?id=<?php echo $_SESSION['idnya']; session_destroy();?>" method="post">
+	 <form name = "form" action="inputlpj.php?id=<?php echo $_SESSION['idnya']; session_destroy();?>" method="post" enctype="multipart/form-data">
 	 <div class="form-group">
       		<label class="control-label col-sm-2">Nama Proker :</label>
       <div class="col-sm-10">
