@@ -9,10 +9,12 @@ include "koneksi.php"
   <title>Balance Score Card</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
 </head>
 <body>
 
@@ -44,8 +46,12 @@ include "koneksi.php"
     <div class="col-sm-2 sidenav">             
 		<img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 	</div>
+	
     <div class="col-sm-8 text-left"> 
 		<h2 class="text-center">Monitoring</h2>
+		<div class="w3-progress-container w3-round-large">
+  <div class="w3-progressbar w3-round-large w3-green w3-center w3-text-white" style="width:25%">25%</div>
+</div><br>
 			<form action="kaprodi_monitoring.php" method="post" >
 			<div class="form-group">
 				<label for="sel1">Pilih Tahun:</label>
