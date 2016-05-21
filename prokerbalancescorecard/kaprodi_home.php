@@ -28,6 +28,7 @@ include('session.php');
         <li><a href="kaprodi_viewbsc.php">Balance Score Card</a></li>
         <li><a href="kaprodi_viewproker.php">Program Kerja</a></li>
         <li><a href="kaprodi_viewlpj.php">Laporan Pertanggung Jawaban</a></li>
+		<li><a href="kaprodi_monitoring.php">Monitoring</a></li>
       </ul>
     </div>
   </div>
