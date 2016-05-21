@@ -128,7 +128,7 @@ $_SESSION['idnya']=$_GET['id'];
 	   ?>
 	 
 	 
-	 <form name = "form" action="inputlpj.php?id=<?php echo $_SESSION['idnya']; session_destroy();?>" method="post" enctype="multipart/form-data">
+	 <form name = "form" action="karyawan_inputlpj.php?id=<?php echo $_SESSION['idnya']; session_destroy();?>" method="post" enctype="multipart/form-data">
 	 <div class="form-group">
       		<label class="control-label col-sm-2">Nama Proker :</label>
       <div class="col-sm-10">
