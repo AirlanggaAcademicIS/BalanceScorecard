@@ -24,7 +24,7 @@ include('session.php');
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="kaprodi_home">Home</a></li>
+        <li class="active"><a href="kaprodi_home.php">Home</a></li>
         <li><a href="kaprodi_viewbsc.php">Balance Score Card</a></li>
         <li><a href="kaprodi_viewproker.php">Program Kerja</a></li>
         <li><a href="kaprodi_viewlpj.php">Laporan Pertanggung Jawaban</a></li>
