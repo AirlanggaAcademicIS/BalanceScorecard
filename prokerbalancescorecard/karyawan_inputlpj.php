@@ -103,7 +103,7 @@ $_SESSION['idnya']=$_GET['id'];
 				{
 				 	echo "Error: Invalid parameters - please contact your server administrator.";
 				}
-				echo "<meta http-equiv='Refresh' content='0; url=viewproker.php'>";
+				echo "<meta http-equiv='Refresh' content='0; url=karyawan_viewproker.php'>";
 				echo "<div class=\"form-group\"><div class=\"col-sm-12\"><div class=\"alert alert-success\">Data berhasil disimpan.</div></div></div>";
 			}
 			else
