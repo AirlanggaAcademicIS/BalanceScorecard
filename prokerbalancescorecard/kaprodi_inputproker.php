@@ -238,7 +238,7 @@
 				}
 				
 				echo "<div class=\"form-group\"><div class=\"col-sm-12\"><div class=\"alert alert-success\">Data berhasil disimpan.</div></div></div>";
-				echo "<meta http-equiv='Refresh' content='0; url=inputproker.php'>";
+				echo "<meta http-equiv='Refresh' content='0; url=kaprodi_inputproker.php'>";
 				
 				$_SESSION['saved'] = true;
 				
