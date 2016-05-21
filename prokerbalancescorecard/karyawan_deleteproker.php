@@ -29,11 +29,10 @@ include "koneksi.php";
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="kaprodi_home.php">Home</a></li>
-        <li><a href="kaprodi_viewbsc.php">Balance Score Card</a></li>
-        <li class="active"><a href="kaprodi_viewproker.php">Program Kerja</a></li>
-        <li><a href="kaprodi_viewlpj.php"> Laporan Pertanggung Jawaban</a></li>
-		<li><a href="kaprodi_monitoring.php">Monitoring</a></li>
+        <li ><a href="karyawan_home.php">Home</a></li>
+        <li><a href="karyawan_viewbsc.php">Balance Score Card</a></li>
+        <li class="active"><a href="karyawan_viewproker.php">Program Kerja</a></li>
+        <li><a href="karyawan_viewlpj.php"> Laporan Pertanggung Jawaban</a></li>
       </ul>
     </div>
   </div>
@@ -44,13 +43,13 @@ include "koneksi.php";
     <div class="col-sm-2 sidenav">             
 		<img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 		<br></br>
-    	<p><a href="kaprodi_viewproker.php"><button type="button" class="btn btn-primary btn-block active">View Proker</button></p>
-	 	<p><a href="kaprodi_inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
+    	<p><a href="karyawan_viewproker.php"><button type="button" class="btn btn-primary btn-block active">View Proker</button></p>
+	 	<p><a href="karyawan_inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
 	 	<p><button type="button" class="btn btn-primary btn-block disabled">Delete Proker</button></a></p>
 	</div>
     <div class="col-sm-8 text-left"> 
 		<h2 class="text-center">Delete Program Kerja</h2>
-		  <form class="form-horizontal" role="form" method="post" action="kaprodi_deleteproker.php">
+		  <form class="form-horizontal" role="form" method="post" action="karyawan_deleteproker.php">
     <div class="form-group">
       <label class="control-label col-sm-2">Tujuan</label>
       <div class="col-sm-10">
@@ -158,7 +157,7 @@ $(document).ready(function(){
   $("#tujuan").change(function(){
     var tujuan = $("#tujuan").val();
     $.ajax({
-        url: "kaprodi_tampilproker.php",
+        url: "karyawan_tampilproker.php",
         data: "tujuan="+tujuan,
         cache: false,
         success: function(msg){

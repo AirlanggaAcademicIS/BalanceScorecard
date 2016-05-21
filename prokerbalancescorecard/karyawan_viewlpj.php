@@ -23,11 +23,10 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="kaprodi_home.php">Home</a></li>
-        <li><a href="kaprodi_viewbsc.php">Balance Score Card</a></li>
-        <li><a href="kaprodi_viewproker.php">Program Kerja</a></li>
-        <li class="active"><a href="kaprodi_viewlpj.php">Laporan Pertanggung Jawaban</a></li>
-		<li><a href="kaprodi_monitoring.php">Monitoring</a></li>
+        <li ><a href="karyawan_home.php">Home</a></li>
+        <li><a href="karyawan_viewbsc.php">Balance Score Card</a></li>
+        <li><a href="karyawan_viewproker.php">Program Kerja</a></li>
+        <li class="active"><a href="karyawan_viewlpj.php">Laporan Pertanggung Jawaban</a></li>
       </ul>
       </li>
     </div>
@@ -40,11 +39,11 @@
      <img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 		<br></br>
     	<p><button type="button" class="btn btn-primary btn-block disabled ">View LPJ</button></a></p>
-		<p><a href="kaprodi_inputlpj.php"><button type="button" class="btn btn-primary btn-block actived">Input LPJ</button></a></p>
+		<p><a href="karyawan_inputlpj.php"><button type="button" class="btn btn-primary btn-block actived">Input LPJ</button></a></p>
     </div>
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Laporan Pertanggung Jawaban</h2>
-				<form id="form1" name="form1" method="post" action="kaprodi_viewlpj.php">
+				<form id="form1" name="form1" method="post" action="karyawan_viewlpj.php">
 				<label for="sel1">Tahun</label>            
 				<select class="form-control" name="tahun" onChange='this.form.submit();'>
 				<option>Tahun</option>

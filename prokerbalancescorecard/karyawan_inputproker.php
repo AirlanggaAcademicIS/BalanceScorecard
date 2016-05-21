@@ -25,11 +25,10 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="kaprodi_home.php">Home</a></li>
-        <li><a href="kaprodi_viewbsc.php">Balance Score Card</a></li>
-        <li class="active"><a href="kaprodi_inputproker.php">Program Kerja</a></li>
-        <li><a href="kaprodi_viewlpj.php"> Laporan Pertanggung Jawaban</a></li>
-		<li><a href="kaprodi_monitoring.php">Monitoring</a></li>
+        <li ><a href="karyawan_home.php">Home</a></li>
+        <li><a href="karyawan_viewbsc.php">Balance Score Card</a></li>
+        <li class="active"><a href="karyawan_inputproker.php">Program Kerja</a></li>
+        <li><a href="karyawan_viewlpj.php"> Laporan Pertanggung Jawaban</a></li>
       </ul>
     </div>
   </div>
@@ -41,13 +40,13 @@
     	<img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 		<br></br>
     	<p><a href="kaprodi_viewproker.php"><button type="button" class="btn btn-primary btn-block active ">View Proker</button></p>
-	 	<p><button type="button" class="btn btn-primary btn-block disabled">Input Proker</button></a></p>
-	 	<p><a href="kaprodi_deleteproker.php"><button type="button" class="btn btn-primary btn-block active">Delete Proker</button></a></p>
+	 	<p><a href="karyawan_deleteproker.php"><button type="button" class="btn btn-primary btn-block disabled">Input Proker</button></a></p>
+	 	<p><a href="karyawan_deleteproker.php"><button type="button" class="btn btn-primary btn-block active">Delete Proker</button></a></p>
 	</div>
     <div class="col-sm-8 text-left"> 
     	<h2 class="text-center">Input Program Kerja</h2>
       	
-		<form id="form2" name="form2" method="post" action="kaprodi_inputproker.php">
+		<form id="form2" name="form2" method="post" action="karyawan_inputproker.php">
 			<label>Nama Proker</label>
 			<input name="proker" class="form-control" 
 			<?php 

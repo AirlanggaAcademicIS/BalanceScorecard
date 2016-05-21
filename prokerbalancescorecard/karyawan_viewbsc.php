@@ -27,11 +27,10 @@ include "koneksi.php";
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="kaprodi_home.php">Home</a></li>
-        <li class="active"><a href="kaprodi_viewbsc.php">Balance Score Card</a></li>
-        <li><a href="kaprodi_viewproker.php">Program Kerja</a></li>
-        <li><a href="kaprodi_viewlpj.php">Laporan Pertanggung Jawaban</a></li>
-		<li><a href="kaprodi_monitoring.php">Monitoring</a></li>
+        <li ><a href="karyawan_home.php">Home</a></li>
+        <li class="active"><a href="karyawan_viewbsc.php">Balance Score Card</a></li>
+        <li><a href="karyawan_viewproker.php">Program Kerja</a></li>
+        <li><a href="karyawan_viewlpj.php">Laporan Pertanggung Jawaban</a></li>
       </ul>
     </div>
   </div>
@@ -43,8 +42,6 @@ include "koneksi.php";
 		<img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 		<br></br>
      	<p><button type="button" class="btn btn-primary btn-block disabled ">View BSC</button></p>
-	 	<p><a href="kaprodi_inputbsc.php"><button type="button" class="btn btn-primary btn-block active">Input BSC</button></a></p>
-	 	<p><a href="kaprodi_editbsc.php"><button type="button" class="btn btn-primary btn-block active">Edit BSC</button></a></p>
     </div>
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Balance Score Card</h2>

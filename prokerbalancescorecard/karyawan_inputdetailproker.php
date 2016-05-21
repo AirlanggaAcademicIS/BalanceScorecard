@@ -23,10 +23,10 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="kaprodi_home.php">Home</a></li>
-        <li><a href="kaprodi_viewbsc.php">Balance Score Card</a></li>
-        <li class="active"><a href="kaprodi_viewproker.php">Program Kerja</a></li>
-        <li><a href="kaprodi_viewlpj.php"> Laporan Pertanggung Jawaban</a></li>
+        <li ><a href="karyawan_home.php">Home</a></li>
+        <li><a href="karyawan_viewbsc.php">Balance Score Card</a></li>
+        <li class="active"><a href="karyawan_viewproker.php">Program Kerja</a></li>
+        <li><a href="karyawan_viewlpj.php"> Laporan Pertanggung Jawaban</a></li>
       </ul>
       </li>
     </div>
@@ -36,7 +36,7 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-    <p><a href="kaprodi_viewlpj.php"> <button type="button" class="btn btn-primary btn-block active ">View LPJ</button></a></p>
+    <p><a href="karyawan_viewlpj.php"> <button type="button" class="btn btn-primary btn-block active ">View LPJ</button></a></p>
 	<p><button type="button" class="btn btn-primary btn-block disabled">Input LPJ</button></p>
     </div>
     <div class="col-sm-8 text-left"> 

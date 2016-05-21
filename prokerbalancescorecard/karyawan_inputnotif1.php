@@ -23,10 +23,10 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="index.php">Home</a></li>
-        <li><a href="viewbsc.php">Balance Score Card</a></li>
-        <li class="active"><a href="viewproker.php">Program Kerja</a></li>
-        <li><a href="viewlpj.php">Laporan Pertanggung Jawaban</a></li>
+        <li ><a href="karyawan_home.php">Home</a></li>
+        <li><a href="karyawan_viewbsc.php">Balance Score Card</a></li>
+        <li class="active"><a href="karyawan_viewproker.php">Program Kerja</a></li>
+        <li><a href="karyawan_viewlpj.php">Laporan Pertanggung Jawaban</a></li>
       </ul>
       </li>
     </div>
@@ -37,7 +37,7 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
      <p><button type="button" class="btn btn-primary btn-block disabled ">View Proker</button></p>
-	 <p><a href="inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
+	 <p><a href="karyawan_inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
     </div>
     
     <div class="col-sm-8 text-left"> 
@@ -58,7 +58,7 @@
          	<div class="form-group">
       			<label class="control-label col-sm-2">Notifikasi :</label>
      		<div class="col-sm-10">
-     		  <form name="notif" method="post" action="inputnotif1.php" >
+     		  <form name="notif" method="post" action="karyawan_inputnotif1.php" >
               <textarea name="Notifikasi" rows="5" class="form-control" id="dp" type="text">
         	  </textarea>
      		  <br>
