@@ -28,6 +28,9 @@
         <li class="active"><a href="viewproker.php">Program Kerja</a></li>
         <li><a href="viewlpj.php">Laporan Pertanggung Jawaban</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
       </li>
     </div>
   </div>
