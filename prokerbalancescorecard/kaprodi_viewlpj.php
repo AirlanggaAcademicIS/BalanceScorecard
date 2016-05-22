@@ -29,6 +29,9 @@
         <li class="active"><a href="kaprodi_viewlpj.php">Laporan Pertanggung Jawaban</a></li>
 		<li><a href="kaprodi_monitoring.php">Monitoring</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
       </li>
     </div>
   </div>
