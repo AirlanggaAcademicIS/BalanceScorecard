@@ -32,9 +32,6 @@ include "koneksi.php";
         <li><a href="karyawan_viewproker.php">Program Kerja</a></li>
         <li><a href="karyawan_viewlpj.php">Laporan Pertanggung Jawaban</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-      </ul>
     </div>
   </div>
 </nav>
@@ -69,12 +66,12 @@ include "koneksi.php";
 							} else {
 							$jum = $jum - 1;
 							}
-							echo "<td>"."<a href=\"kaprodi_viewproker.php\">".ucwords($row['TUJUAN_ORGANISASI'])."</a></td>";
+							echo "<td>".ucwords($row['TUJUAN_ORGANISASI'])."</td>";
 							echo "<td>";
 							$id_tujuan=$row['id_tujuan'];
 							$query = mysql_query("SELECT nama_indikator_tujuan FROM indikator_tujuan WHERE id_tujuan='$id_tujuan'");
 								while ($data = mysql_fetch_array($query)){
-									echo "<a href=\"kaprodi_viewproker.php\">".ucwords($data['nama_indikator_tujuan'])."</a>";
+									echo ucwords($data['nama_indikator_tujuan'])."</a>";
 									echo "</br>";
 								}
 							echo "</td>";
