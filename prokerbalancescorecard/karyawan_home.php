@@ -29,6 +29,9 @@ include('session.php');
         <li><a href="karyawan_viewproker.php">Program Kerja</a></li>
         <li><a href="karyawan_viewlpj.php">Laporan Pertanggung Jawaban</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
     </div>
   </div>
 </nav>
