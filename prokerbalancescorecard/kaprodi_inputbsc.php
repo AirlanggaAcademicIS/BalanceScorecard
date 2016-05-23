@@ -60,83 +60,77 @@ include "koneksi.php"
 				<option value="Finansial">Finansial</option>
 				<option value="Pertumbuhan dan pembelajaran">Pertumbuhan dan pembelajaran</option>
 					
-        </select>
+        	</select>
 			<label>
        <br><label>
           <div align="left">Tujuan</div>
           </label>
 			<div align="left">
-			  <input name="Tujuan" class="form-control" >
+			  <input type="text" name="Tujuan" class="form-control" >
 			</div>
 			<label>
 			<div align="left">Indikator</div>
 			</label>
+			<input name="input_indikator" type="text" placeholder="indikator" id="input_indikator" size="27" class="form-control"/>
+             <input type="button" id = "tambah_indikator" class="btn btn-primary" value="Tambah">
+			  <script>
+				$(document).ready(function(){
+					$('#input_indikator').keypress(function(e){
+					  if(e.keyCode==13)
+					  $('#tambah_indikator').click();
+					});
+				});
+			  </script>
+			<textarea name="list_indikator" id="list_indikator" style="width: 310px; height: 100px; border: 0; padding-left: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 12px;background-color: rgba(255, 255, 255, 0.5); resize:none;" class="form-control" readonly></textarea>
+		<script>
+			var x=1;
+			$(document).ready(function(){
+				$("#tambah_indikator").click(function(){
+					if ($('#input_indikator').val() != '') {
+						$('#list_indikator').append($("#input_indikator").val()+"\n");
+						$("#input_indikator").val("");
+						x++;
+					}
+				});
+			});
+		</script>
+		  
 		  <div align="left">
 		   
-			  <input name="Indikator1" class="form-control" > 
-			   <input name="Indikator2" class="form-control" > 
-			 </p>
-			 <input name="Indikator3" class="form-control" > 
-			   </p>
-			   <input name="Indikator4" class="form-control" > 
-			   </p>
-			   <input name="Indikator5" class="form-control" > 
-			  
-			  </p>
-			  </td>
-			  
-			  
-			  
-			  
-			  
 			  <input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ;"/>
-		  </div></div>
+		  </div>
 		</form>
-      
-		
     
-
     <label></label>
   
   <?php 
 	if(isset($_POST['simpan']))
-		{if((((($_POST['Tujuan']!=NULL&&$_POST['Perspektif']!=""&&$_POST['Indikator1']!=NULL)||$_POST['Indikator2']!=NULL)||$_POST['Indikator3']!=NULL)||$_POST['Indikator4']!=NULL)||$_POST['Indikator5']!=NULL)
+		{if($_POST['Tujuan']!=NULL&&$_POST['Perspektif']!=""&&$_POST['list_indikator']!=NULL)
 			{
 			
 				$sql = "INSERT INTO tujuan (TUJUAN_ORGANISASI, PERSPEKTIF) VALUES ('".$_POST['Tujuan']."','".$_POST['Perspektif']."')";
 				mysql_query($sql);
-				
 				$sql = "SELECT * FROM tujuan WHERE TUJUAN_ORGANISASI ='".$_POST['Tujuan']."'";
 				$query = mysql_query($sql);
   				$data2 = mysql_fetch_array($query);
 				
-			if($_POST['Indikator1']!=NULL){	
-			$sql = "INSERT INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$_POST['Indikator1']."',".$data2['ID_TUJUAN'].")";
-				mysql_query($sql);
-				if($_POST['Indikator2']!=NULL){	
-			$sql = "INSERT INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$_POST['Indikator2']."',".$data2['ID_TUJUAN'].")";
-				mysql_query($sql);
-				if($_POST['Indikator3']!=NULL){	
-			$sql = "INSERT INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$_POST['Indikator3']."',".$data2['ID_TUJUAN'].")";
-				mysql_query($sql);
-				if($_POST['Indikator4']!=NULL){	
-			$sql = "INSERT INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$_POST['Indikator4']."',".$data2['ID_TUJUAN'].")";
-				mysql_query($sql);
-				if($_POST['Indikator5']!=NULL){	
-			$sql = "INSERT INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$_POST['Indikator5']."',".$data2['ID_TUJUAN'].")";
-				mysql_query($sql);
-				}}}}}}
-			else
-			{
-			 if(isset($_POST['simpan'])){
-			
-
-echo "<script>alert('maaf data anda belum lengkap');</script>";
-}
-
-			
+				if($_POST['list_indikator']!=NULL){
+					$array = explode("\n",$_POST['list_indikator']);
+					$size = sizeof($array);	
+					for($i=0;$i<$size-1;$i++)
+					{
+						$sql = "INSERT INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$array[$i]."',".$data2['ID_TUJUAN'].")";
+						mysql_query($sql);
+					}	
+				}
+				else
+				{
+					if(isset($_POST['simpan'])){
+					echo "<script>alert('maaf data anda belum lengkap');</script>";
+					}
+				}
 			}
-			}
+		}
 		
 		?>
    
