@@ -51,7 +51,111 @@ include "koneksi.php"
     </div>
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Edit Balance Score Card</h2>
+            <form id="form2" name="form2" method="post" action="editbsc.php">
+		 
+		 <label>Tujuan yang mau diganti</label>
+			<select name="Tujuan" style="width:100%" class="form-control" onChange="this.form.submit()">
+				<option value="">Pilih Tujuan</option> 
+				<?php $data = "select * from tujuan";
+				
+ 		 		$query = mysql_query($data);
+  				while($data2 = mysql_fetch_array($query))
+  				{
+  					if(isset($_POST['Tujuan']))
+					{
+						if($_POST['Tujuan']==$data2['ID_TUJUAN'])
+						{
+							echo "<option value=\"".$data2['ID_TUJUAN']."\" selected=\"selected\">".$data2['TUJUAN_ORGANISASI']."</option>";
+						}
+						else
+						{
+							echo "<option value=\"".$data2['ID_TUJUAN']."\">".$data2['TUJUAN_ORGANISASI']."</option>";
+						}
+  					}
+					else
+						{
+							echo "<option value=\"".$data2['ID_TUJUAN']."\">".$data2['TUJUAN_ORGANISASI']."</option>";
+						}
+				}
+				?>
+			</select>  
+			<label>
+       <br><label>
+          <div align="left">Tujuan yang baru</div>
+          </label>
+			<div align="left">
+			  <input name="Tujuannew" class="form-control" >
+			</div>
+			<label>
+       <br><label>
+          <div align="left">Perspektif yang lama</div>
+          </label>
+			<div align="left">
+			  <?php 
+			  if(isset($_POST['Tujuan']))
+			  {
+			  	 echo "<input name=\"Perspektif\" disabled= \"disabled\" class=\"form-control\" value = \"";
+			  $data = "select * from tujuan WHERE ID_TUJUAN = ".$_POST['Tujuan'];
+				
+ 		 		$query = mysql_query($data);
+  				while($data2 = mysql_fetch_array($query))
+  				{
+  					echo $data2['PERSPEKTIF'];
+  				}
+				echo "\">";
+			  }
+			  ?>
+			 
+			  <label>Perspektif yang baru</label>
+			<select name="Perspektifnew" style="width:100%" class="form-control" >
+			<option value="Pilih Perspektif"> Pilih Perspektif </option>
+				<option value="Customer"> Customer </option>
+				<option value="Finansial"> Finansial </option> 
+				<option value="Proses bisnis intenal">Proses bisnis intenal </option> 
+				<option value="Pertumbuhan dan pembelajaran"> Pertumbuhan dan pembelajaran </option>  
+				
+			</select>
+			</div>
+			
+			 <label>Indikator 1 yang mau diganti</label>
+			<select name="Indikator1" style="width:100%" class="form-control" >
+				<option value="">Pilih Indikator </option> 
+				 <?php 
+			  if(isset($_POST['Tujuan']))
+			  {
+			  	 
+			  $data = "select * from indikator_tujuan WHERE ID_TUJUAN = ".$_POST['Tujuan'];
+				
+ 		 		$query = mysql_query($data);
+  				while($data2 = mysql_fetch_array($query))
+  				{
+  					echo "<option Value = '".$data2['ID_INDIKATOR']."'>".$data2['NAMA_INDIKATOR_TUJUAN']."</option>>";
+  				}
+				echo "\">";
+			  }
+			  ?>
+			</select> 
+			<label>
+			<div align="left">Indikator 1 baru</div>
+			</label>
+		  <div align="left">
+		   
+			  <input name="Indikator1new" class="form-control" > 
+			  
+			  </p>
+			  
+				
+				 
+				
+			  
+			  
+			  
+			  
+			  <input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ;"/>
+		  </div></div>
+		</form>
     </div>
+     </form>
   </div>
 </div>
 
