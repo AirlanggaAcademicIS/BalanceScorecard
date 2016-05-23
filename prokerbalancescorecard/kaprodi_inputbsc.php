@@ -74,8 +74,16 @@ include "koneksi.php"
 		  <div align="left">
 		   
 			  <input name="Indikator1" class="form-control" > 
-			  </p>
+			   <input name="Indikator2" class="form-control" > 
+			 </p>
+			 <input name="Indikator3" class="form-control" > 
+			   </p>
+			   <input name="Indikator4" class="form-control" > 
+			   </p>
+			   <input name="Indikator5" class="form-control" > 
 			  
+			  </p>
+			  </td>
 			  
 			  
 			  
@@ -91,8 +99,8 @@ include "koneksi.php"
     <label></label>
   
   <?php 
-		if(isset($_POST['simpan']))
-		{if(($_POST['Tujuan']!=NULL&&$_POST['Perspektif']!="")||$_POST['Indikator1']!=NULL)
+	if(isset($_POST['simpan']))
+		{if((((($_POST['Tujuan']!=NULL&&$_POST['Perspektif']!=""&&$_POST['Indikator1']!=NULL)||$_POST['Indikator2']!=NULL)||$_POST['Indikator3']!=NULL)||$_POST['Indikator4']!=NULL)||$_POST['Indikator5']!=NULL)
 			{
 			
 				$sql = "INSERT INTO tujuan (TUJUAN_ORGANISASI, PERSPEKTIF) VALUES ('".$_POST['Tujuan']."','".$_POST['Perspektif']."')";
@@ -105,15 +113,33 @@ include "koneksi.php"
 			if($_POST['Indikator1']!=NULL){	
 			$sql = "INSERT INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$_POST['Indikator1']."',".$data2['ID_TUJUAN'].")";
 				mysql_query($sql);
-				
-			}}
+				if($_POST['Indikator2']!=NULL){	
+			$sql = "INSERT INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$_POST['Indikator2']."',".$data2['ID_TUJUAN'].")";
+				mysql_query($sql);
+				if($_POST['Indikator3']!=NULL){	
+			$sql = "INSERT INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$_POST['Indikator3']."',".$data2['ID_TUJUAN'].")";
+				mysql_query($sql);
+				if($_POST['Indikator4']!=NULL){	
+			$sql = "INSERT INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$_POST['Indikator4']."',".$data2['ID_TUJUAN'].")";
+				mysql_query($sql);
+				if($_POST['Indikator5']!=NULL){	
+			$sql = "INSERT INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$_POST['Indikator5']."',".$data2['ID_TUJUAN'].")";
+				mysql_query($sql);
+				}}}}}}
 			else
 			{
+			 if(isset($_POST['simpan'])){
+			
+
+echo "<script>alert('maaf data anda belum lengkap');</script>";
+}
+
 			
 			}
 			}
 		
 		?>
+   
     </div>
     </form>
     </div>
