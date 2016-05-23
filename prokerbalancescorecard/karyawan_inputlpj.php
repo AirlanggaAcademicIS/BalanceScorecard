@@ -1,6 +1,8 @@
 <?php  
 //membuat koneksi ke database  
 include "koneksi.php"; 
+session_start();
+$_SESSION['idnya']=$_GET['id'];
 ?> 
 
 <!DOCTYPE html>
