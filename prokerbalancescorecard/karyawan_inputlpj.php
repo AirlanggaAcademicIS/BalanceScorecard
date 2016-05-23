@@ -104,7 +104,7 @@ include "koneksi.php";
 				{
 				 	echo "Error: Invalid parameters - please contact your server administrator.";
 				}
-				echo "<meta http-equiv='Refresh' content='0; url=viewproker.php'>";
+				echo "<meta http-equiv='Refresh' content='0; url=karyawan_viewproker.php'>";
 				echo "<div class=\"form-group\"><div class=\"col-sm-12\"><div class=\"alert alert-success\">Data berhasil disimpan.</div></div></div>";
 			}
 			else
@@ -129,7 +129,7 @@ include "koneksi.php";
 	   ?>
 	 
 	 
-	 <form name = "form" action="inputlpj.php?id=<?php echo $_SESSION['idnya']; session_destroy();?>" method="post" enctype="multipart/form-data">
+	 <form name = "form" action="karyawan_inputlpj.php?id=<?php echo $_SESSION['idnya']; session_destroy();?>" method="post" enctype="multipart/form-data">
 	 <div class="form-group">
       		<label class="control-label col-sm-2">Nama Proker :</label>
       <div class="col-sm-10">
