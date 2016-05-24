@@ -52,9 +52,7 @@ include "koneksi.php"
 	
     <div class="col-sm-8 text-left"> 
 		<h2 class="text-center">Monitoring</h2>
-		<div class="w3-progress-container w3-round-large">
-			<div class="w3-progressbar w3-round-large w3-green w3-center w3-text-white" style="width:25%">25%</div>
-		</div><br>
+
 			<form action="kaprodi_monitoring.php" method="post" >
 			<div class="form-group">
 				<label for="sel1">Pilih Tahun:</label>
