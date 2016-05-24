@@ -1,8 +1,3 @@
-<?php  
-//membuat koneksi ke database  
-include "koneksi.php"; 
-?> 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,14 +24,11 @@ include "koneksi.php";
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="kaprodi_home.php">Home</a></li>
-        <li><a href="kaprodi_viewbsc.php">Balance Score Card</a></li>
-        <li class="active"><a href="kaprodi_viewproker.php">Program Kerja</a></li>
-        <li><a href="kaprodi_viewlpj.php"> Laporan Pertanggung Jawaban</a></li>
-		<li><a href="kaprodi_monitoring.php">Monitoring</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li ><a href="index.php">Home</a></li>
+        <li><a href="viewbsc.php">Balance Score Card</a></li>
+        <li class="active"><a href="viewproker.php">Program Kerja</a></li>
+        <li><a href="viewlpj.php"> Laporan Pertanggung Jawaban</a></li>
+		<li><a href="monitoring.php">Monitoring</a></li>
       </ul>
     </div>
   </div>
@@ -47,26 +39,25 @@ include "koneksi.php";
     <div class="col-sm-2 sidenav">             
 		<img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 		<br></br>
-    	<p><a href="kaprodi_viewproker.php"><button type="button" class="btn btn-primary btn-block active">View Proker</button></p>
-	 	<p><a href="kaprodi_inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
+    	<p><a href="viewproker.php"><button type="button" class="btn btn-primary btn-block active">View Proker</button></p>
+	 	<p><a href="inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
 	 	<p><button type="button" class="btn btn-primary btn-block disabled">Delete Proker</button></a></p>
 	</div>
     <div class="col-sm-8 text-left"> 
 		<h2 class="text-center">Delete Program Kerja</h2>
+			<?php
+			include 'koneksi.php';
+        	?>
 		  <form class="form-horizontal" role="form" method="post" action="kaprodi_deleteproker.php">
     <div class="form-group">
       <label class="control-label col-sm-2">Tujuan</label>
       <div class="col-sm-10">
         <select class="form-control" id="tujuan" name="tujuan">
         <option value="">--Pilih Tujuan--</option>
-						 <?php
-                $query = mysql_query("SELECT tujuan_organisasi, id_tujuan FROM tujuan ORDER BY tujuan_organisasi");
-                while ($row = mysql_fetch_array($query)) {
-                ?>
-                    <option value="<?php echo $row['id_tujuan']; ?>">
-                        <?php echo $row['tujuan_organisasi']; ?>
-                    </option>
-                <?php
+				<?php
+                $tujuan = mysql_query("SELECT tujuan_organisasi, id_tujuan FROM tujuan ORDER BY tujuan_organisasi");
+                while ($t = mysql_fetch_array($tujuan)) {
+                echo "<option value=\"$t[id_tujuan]\">$t[tujuan_organisasi]</option>\n"; 
                 }
                 ?>
       </select>
@@ -81,10 +72,13 @@ include "koneksi.php";
       </select>
       </div>
     </div>
+	
+       
 	<div class="form-group">
     	<label class="control-label col-sm-2">Koordinator</label>
     	<div class="col-sm-10">
-		<input type="text" name="harga" class="form-control" id="harga" placeholder="Nama Koordinator" disabled="disabled" value="">
+		<input type="text" name="koordinator" class="form-control" id="koordinator" placeholder="Nama Koordinator" disabled="disabled" value="">
+		 
     	</div>
  	</div>
 	<div class="form-group">
@@ -105,49 +99,16 @@ include "koneksi.php";
 		<input type="text" name="waktu" class="form-control" id="waktu" placeholder="Waktu Pelaksanaan" disabled="disabled" value="">
     	</div>
  	</div>
-	<input name="submit" type="submit" class="btn btn-default" value="hapus" />
+	<input name="submit" type="submit" class="btn btn-default" value="hapus">
+	<?php
+                if (isset ($_POST['submit'])){
+				$delete = mysql_query("DELETE FROM proker where id_proker = '".$_POST['proker']."'");
+                }
+                ?>
+      </select>
   </form>
 			
 			
-            <!--kota-->
-          <!--  
-		<table id="statustabel" class="table table-bordered table-striped" style="background:#F9F9F9; font-size:18px;
-			 font-family:Geneva, Arial, Helvetica, sans-serif;" >
-                    <thead>
-                        <tr>
-							<td style="size:landscape; background-color:#C0C0C0;">Terlaksana</td>
-						</tr>
-						<tr>
-							<td>
-							<?php 
-							if(isset($_POST['submit'])){
-							$tujuan = $_POST['tujuan'];
-							$proker = $_POST['proker'];
-							echo $tujuan;
-							echo $proker;
-							}
-							?>
-							</td>
-						</tr>
-						<tr>
-							<td style="size:landscape; background-color:#C0C0C0;">Tidak Terlaksana</td>
-						</tr>
-						<tr>
-							<td>
-							<?php
-			
-					if(isset($_POST['proker'])){
-						$proker = $_POST['proker'];
-						$query = mysql_query("SELECT k.nama FROM proker p, karyawan k WHERE p.id_proker='$proker' AND p.nip=k.nip");
-						$data = mysql_fetch_array($query);
-						echo $data['nama'];
-						}
-						?>
-							</td>
-						</tr>
-						
-                    </thead>  
-				</table>-->
 		
         <script src="jquery-1.10.2.min.js"></script>
         <script src="jquery.chained.min.js"></script>
