@@ -58,7 +58,21 @@
                 notif
               </caption>
               <tr>
-                <td>&nbsp;</td>
+                <td>&nbsp; 
+				<?php
+			$queri="Select * From notifikasi where ID_NOTIFIKASI=".$_GET['id1'];  //menampikan SEMUA data dari tabel notifikasi  
+	  		$hasil=MySQL_query ($queri);
+			
+			
+			while ($data = mysql_fetch_array ($hasil)){
+				echo $data['NOTIFIKASI'];
+
+			}
+			
+			if ($hasil= NULL){
+			echo "notifikasi belum di input";}
+			
+				?>    	</td>
               </tr>
             </table>
     </div>
