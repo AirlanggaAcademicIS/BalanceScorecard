@@ -164,6 +164,14 @@
 				?>    
       </div>
     </div>
+    
+    <div class="form-group">
+      		<label class="control-label col-sm-2">Upload LPJ :</label>
+       <div class="col-sm-10">
+       <input type="file" name="myFile" size="50"><br>
+   		 </div> 
+      </div>
+    
     <input type="submit" name="simpan" value="Simpan" class="btn btn-primary"/><br><br><br><br><br>  
     <?php
 if(isset ($_POST['simpan'])){
