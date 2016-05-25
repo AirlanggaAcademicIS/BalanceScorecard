@@ -72,7 +72,7 @@ include "koneksi.php";
 							} else {
 							$jum = $jum - 1;
 							}
-							echo "<td>"."<a href=\"kaprodi_viewproker.php\">".ucwords($row['TUJUAN_ORGANISASI'])."</a></td>";
+							echo "<td>"."<a href=\"kaprodi_viewproker.php?id=".$row['ID_TUJUAN']."\">".ucwords($row['TUJUAN_ORGANISASI'])."</a></td>";
 							echo "<td>";
 							$id_tujuan=$row['id_tujuan'];
 							$query = mysql_query("SELECT nama_indikator_tujuan FROM indikator_tujuan WHERE id_tujuan='$id_tujuan'");
