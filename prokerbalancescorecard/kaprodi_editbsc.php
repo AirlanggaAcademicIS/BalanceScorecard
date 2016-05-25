@@ -143,17 +143,36 @@ include "koneksi.php"
 			  <input name="Indikator1new" class="form-control" > 
 			  
 			  </p>
-			  
-				
-				 
-				
-			  
-			  
-			  
-			  
-			  <input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ;"/>
+	 <input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ;"/>
 		  </div></div>
 		</form>
+		 <label></label>
+  
+  <?php 
+		if(isset($_POST['simpan']))
+		{if((($_POST['Tujuannew']!=NULL)||$_POST['Perspektifnew']!=NULL)||$_POST['Indikator1new']!=NULL)
+			{
+			
+				$sql = "UPDATE tujuan SET TUJUAN_ORGANISASI = '".$_POST['Tujuannew']."', PERSPEKTIF = '".$_POST['Perspektifnew']."' WHERE ID_TUJUAN =" .$_POST['Tujuan']  ;
+				mysql_query($sql);
+				
+				$sql = "SELECT * FROM tujuan WHERE TUJUAN_ORGANISASI ='".$_POST['Tujuannew']."'";
+				$query = mysql_query($sql);
+  				$data2 = mysql_fetch_array($query);
+				
+			//if($_POST['Indikator1']!=NULL){	
+			//$sql = "ALTER INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$_POST['Indikator1new']."',".$data2['ID_TUJUAN'].")";
+			$sql = "UPDATE indikator_tujuan SET NAMA_INDIKATOR_TUJUAN = '".$_POST['Indikator1new']."' WHERE ID_INDIKATOR_TUJUAN =" .$_POST['Indikator1']  ;
+				mysql_query($sql);
+				}
+			else
+			{
+			
+			}
+			}
+		
+		?>
+  
     </div>
      </form>
   </div>
