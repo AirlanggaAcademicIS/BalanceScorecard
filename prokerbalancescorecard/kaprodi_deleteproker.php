@@ -1,3 +1,8 @@
+<?php  
+//membuat koneksi ke database  
+include "koneksi.php"; 
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,11 +29,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="index.php">Home</a></li>
-        <li><a href="viewbsc.php">Balance Score Card</a></li>
-        <li class="active"><a href="viewproker.php">Program Kerja</a></li>
-        <li><a href="viewlpj.php"> Laporan Pertanggung Jawaban</a></li>
-		<li><a href="monitoring.php">Monitoring</a></li>
+        <li ><a href="kaprodi_home.php">Home</a></li>
+        <li><a href="kaprodi_viewbsc.php">Balance Score Card</a></li>
+        <li class="active"><a href="kaprodi_viewproker.php">Program Kerja</a></li>
+        <li><a href="kaprodi_viewlpj.php"> Laporan Pertanggung Jawaban</a></li>
+		<li><a href="kaprodi_monitoring.php">Monitoring</a></li>
       </ul>
     </div>
   </div>
@@ -39,22 +44,19 @@
     <div class="col-sm-2 sidenav">             
 		<img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 		<br></br>
-    	<p><a href="viewproker.php"><button type="button" class="btn btn-primary btn-block active">View Proker</button></p>
-	 	<p><a href="inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
+    	<p><a href="kaprodi_viewproker.php"><button type="button" class="btn btn-primary btn-block active">View Proker</button></p>
+	 	<p><a href="kaprodi_inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
 	 	<p><button type="button" class="btn btn-primary btn-block disabled">Delete Proker</button></a></p>
 	</div>
     <div class="col-sm-8 text-left"> 
 		<h2 class="text-center">Delete Program Kerja</h2>
-			<?php
-			include 'koneksi.php';
-        	?>
 		  <form class="form-horizontal" role="form" method="post" action="kaprodi_deleteproker.php">
     <div class="form-group">
       <label class="control-label col-sm-2">Tujuan</label>
       <div class="col-sm-10">
         <select class="form-control" id="tujuan" name="tujuan">
         <option value="">--Pilih Tujuan--</option>
-				<?php
+						<?php
                 $tujuan = mysql_query("SELECT tujuan_organisasi, id_tujuan FROM tujuan ORDER BY tujuan_organisasi");
                 while ($t = mysql_fetch_array($tujuan)) {
                 echo "<option value=\"$t[id_tujuan]\">$t[tujuan_organisasi]</option>\n"; 
@@ -72,13 +74,10 @@
       </select>
       </div>
     </div>
-	
-       
 	<div class="form-group">
     	<label class="control-label col-sm-2">Koordinator</label>
     	<div class="col-sm-10">
-		<input type="text" name="koordinator" class="form-control" id="koordinator" placeholder="Nama Koordinator" disabled="disabled" value="">
-		 
+		<input type="text" name="harga" class="form-control" id="harga" placeholder="Nama Koordinator" disabled="disabled" value="">
     	</div>
  	</div>
 	<div class="form-group">
@@ -106,9 +105,7 @@
                 }
                 ?>
       </select>
-  </form>
-			
-			
+		
 		
         <script src="jquery-1.10.2.min.js"></script>
         <script src="jquery.chained.min.js"></script>
