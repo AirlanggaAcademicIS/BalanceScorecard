@@ -1,4 +1,3 @@
-
 <?php
     include "koneksi.php";
 	
@@ -13,4 +12,3 @@
    			
 ?>
 	
-  
