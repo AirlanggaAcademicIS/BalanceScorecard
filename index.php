@@ -3,7 +3,12 @@
 <head>
 	
 <meta charset="utf-8" />
-	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>	
 <title>Balance Scorecard Universitas Airlangga</title>
 	
 <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -36,13 +41,30 @@ function MM_validateForm() { //v4.0
 </script>
 <style type="text/css">
 <!--
-.style1 {font-size: 36px}
+.style1 {
+	font-size: 18px;
+	color: #FFFFFF;
+}
 -->
 </style>
 </head>
 
 
 <body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar"> </div>
+  </div>
+  <br>
+    <div align="center" class="style2 style1">Balanced Scorecard</div>
+
+</nav>	
 	
 
 <div id="theme-login-wrapper">
@@ -51,14 +73,7 @@ function MM_validateForm() { //v4.0
 			
 <div class="theme-login-body">
 				
-<div class="theme-login-title">
-  <table width="200" border="1">
-    <tr>
-      <td width="26%" height="22"><img src="file:///C|/Users/Andri/Pictures/unair.jpg" width="123" height="114"></td>
-      <td width="74%"> <div align="center"><span class="style1">BALANCED SCORE CARD</span> </div></td>
-    </tr>
-  </table>
-</div>
+<div class="theme-login-title"></div>
 		
 <div class="theme-login-form">
 			
@@ -93,12 +108,12 @@ function MM_validateForm() { //v4.0
    
      <div align="right">
        <p onfocus="MM_validateForm('NIP/NIK','','RisNum','password','','R');return document.MM_returnValue">
-         <button type="button" class="btn btn-primary">Login</button>
-		 <input type="submit" name="login" value="login" ; mm_validateform('nip/nik','','risnum','password','','r');return document.mm_returnvalue">
+		 <input type="submit" name="login" value="login" class="btn btn-primary" ; mm_validateform('nip/nik','','risnum','password','','r');return document.mm_returnvalue">
        </p>
        </div>     
      <div align="right">
-         <input type="submit" name="Submit" value="Lupa Password ?">
+         <input type="submit" name="Submit" value="Lupa Password ?" class="btn btn-primary">
+
          </div>
      </label></td>
 </tr>
@@ -107,12 +122,13 @@ function MM_validateForm() { //v4.0
 </form>
 				
 </div>
-			
+</div>			
 </div>
 
-</div>
 
-</div>
+<footer class="container-fluid text-center">
+  <p>Sistem Informasi Universitas Airlangga</p>
+</footer>
 </body>
 
 </html>
