@@ -95,16 +95,21 @@ function MM_validateForm() { //v4.0
        <p onfocus="MM_validateForm('NIP/NIK','','RisNum','password','','R');return document.MM_returnValue">
          <input type="submit" name="login" value="login" ; mm_validateform('nip/nik','','risnum','password','','r');return document.mm_returnvalue">
        </p>
-       </div>     
+       </div>
+       </form>
+     <form action="niplupapass.php" method="post">
+       
+       
      <div align="right">
          <input type="submit" name="Submit" value="Lupa Password ?">
+         <td><a href=\"lupapass.php?id=".$_POST['NIP/NIK']."\"> </td>
+		
 
          </div>
+         </form>
      </label></td>
 </tr>
 </table>
-					
-</form>
 				
 </div>
 			
