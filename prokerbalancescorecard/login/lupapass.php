@@ -13,21 +13,26 @@ $_SESSION['NIP']=$_GET['NIP'];
 <body>
 <form name="form2" method="post" action="lupapass.php?NIP=<?php echo $_SESSION['NIP'];?>">
 <div class="form-group">
-      		<label class="control-label col-sm-2">Input tanggal lahir :</label>
+      		<label class="control-label col-sm-2">Masukkan Nomor HP :</label>
       <div class="col-sm-10">
       
-      	<input type='date'  class='form-control' name='tanggallahir'/>
+      	<input type='text'  class='form-control' name='nomorhp'/>
         <input type="submit" name="cek" value="Cek" class="btn btn-primary"/>
+        
+        <br />
+        <br />
       
        <?php
 	   if(isset ($_POST['cek'])){
+	   
+	   
 	   
 	   $queri="Select * From karyawan where NIP='".$_SESSION['NIP']."'";  //menampikan SEMUA data dari tabel siswa  
 	  		$hasil=MySQL_query ($queri);
 			
 			
 			while ($data = mysql_fetch_array ($hasil)){
-				if($_POST['tanggallahir']==$data['TANGGAL_LAHIR']){
+				if($_POST['nomorhp']==$data['nomor_hp']){
 				
 
 				echo "<input type='text'  class='form-control' name='resetpass'>";
