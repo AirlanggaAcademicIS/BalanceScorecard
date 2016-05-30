@@ -52,7 +52,7 @@ $_SESSION['idnya']=$_GET['id'];
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Input Laporan Pertanggung Jawaban</h2>
      
-	 <?php 
+	<?php 
 	   if(isset($_POST['Submit']))
 	   {
 	   		
@@ -87,12 +87,12 @@ $_SESSION['idnya']=$_GET['id'];
      					// Verify MYME type of the file
      					if(in_array($filetype, $allowed)){
         				// Check whether file exists before uploading it
-        					if(file_exists("" . $_SESSION['idnya'])){
+        					if(file_exists("files/" . $data2['ID_LPJ'])){
              					echo $_SESSION['idnya'] . " is already exists.";
 							} 
 							else
 							{
-           						move_uploaded_file($_FILES["myFile"]["tmp_name"], "" . $_SESSION['idnya'] .".". end(explode(".", $_FILES["myFile"]["name"])));
+           						move_uploaded_file($_FILES["myFile"]["tmp_name"], "files/" . $data2['ID_LPJ'] .".". end(explode(".", $_FILES["myFile"]["name"])));
 								
            					} 
 						} 
@@ -225,12 +225,14 @@ $_SESSION['idnya']=$_GET['id'];
      <div class="form-group">
       		<label class="control-label col-sm-2">Indikator :</label>
       <div class="col-sm-10">
-        <label class="checkbox-inline"><input type="checkbox" value="Acara">Acara</label> 
-		<label class="checkbox-inline"><input type="checkbox" value="Publikasi">Publikasi</label>
-		<label class="checkbox-inline"><input type="checkbox" value="Dok">Dokumentasi</label><br>
-		<label class="checkbox-inline"><input type="checkbox" value="Dana">Dana</label>  
-		<label class="checkbox-inline"><input type="checkbox" value="Konsumsi">Konsumsi</label> 
-		<label class="checkbox-inline"><input type="checkbox" value="kesekretariatan">Kesekretariatan</label>
+        <?php 
+		$data = "select distinct i.ID_INDIKATOR_TUJUAN, i.NAMA_INDIKATOR_TUJUAN from indikator_tujuan i, proker p, menunjang m where m.ID_INDIKATOR_TUJUAN = i.ID_INDIKATOR_TUJUAN and m.ID_PROKER = p.ID_PROKER and p.ID_PROKER = '".$_SESSION['idnya']."'";
+ 		 		$query = mysql_query($data);
+		while($data2 = mysql_fetch_array($query))
+  				{
+  					echo "<div class=\"checkbox\"><label><input type=\"checkbox\"  disable=\"disabled\" name=\"check_list[]\" value=\"".$data2['ID_INDIKATOR_TUJUAN']."\"/> ".$data2['NAMA_INDIKATOR_TUJUAN']."</label></div>";
+  				}
+				 ?>
       <br></div>
     </div>    
      <div class="form-group">
