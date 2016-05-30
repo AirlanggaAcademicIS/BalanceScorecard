@@ -64,7 +64,7 @@
                     <thead>
                         <tr>
                             <th>Nomor</th>
-							<th>Id LPJ</th>
+			    <th>Id LPJ</th>
                             <th>Nama Proker</th>
                             <th>Evaluasi</th>
                             <th>Keberlanjutan</th>
@@ -81,11 +81,11 @@ while ($data = mysql_fetch_array ($hasil)){
  			echo "      
         			<tr>  
         			<td>".$id."</td>
-					<td>".$data[0]."</td>  
+				<td>".$data[0]."</td>  
         			<td>".$data[1]."</td>  
         			<td>".$data[2]."</td>  
         			<td>".$data[3]."</td>  
-					<td><a href=\"kaprodi_viewdetaillpj.php?id=".$id."\">"."Detail</a> "."
+				<td><a href=\"viewdetaillpj.php?id=".$id."\">"."Detail</a> "." || <a href=download.php?download_file=".$data[0].".doc\">"."Download LPJ</a>"."</td>
         		</tr>   
         	";      
 			}
