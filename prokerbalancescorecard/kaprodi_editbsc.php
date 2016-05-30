@@ -51,7 +51,7 @@ include "koneksi.php"
     </div>
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Edit Balance Score Card</h2>
-            <form id="form2" name="form2" method="post" action="editbsc.php">
+            <form id="form2" name="form2" method="post" action="kaprodi_editbsc.php">
 		 
 		 <label>Tujuan yang mau diganti</label>
 			<select name="Tujuan" style="width:100%" class="form-control" onChange="this.form.submit()">
