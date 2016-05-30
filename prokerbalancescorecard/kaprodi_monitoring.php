@@ -52,9 +52,6 @@ include "koneksi.php"
 	
     <div class="col-sm-8 text-left"> 
 		<h2 class="text-center">Monitoring</h2>
-		<div class="w3-progress-container w3-round-large">
-  <div class="w3-progressbar w3-round-large w3-green w3-center w3-text-white" style="width:25%">25%</div>
-</div><br>
 			<form action="kaprodi_monitoring.php" method="post" >
 			<div class="form-group">
 				<label for="sel1">Pilih Tahun:</label>
@@ -86,6 +83,7 @@ include "koneksi.php"
 						$query = mysql_query("SELECT * FROM proker WHERE STATUS_PROKER='Terlaksana' AND date_format(WAKTU_MULAI_PROKER, '%Y') = '$tahun'");
 						while ($data = mysql_fetch_array($query)){
 							echo "<a href=\"kaprodi_viewlpj.php\">".$data['NAMA_PROKER']."</a>";
+							echo "</br>";
 							}
 						}
 						?>
@@ -102,6 +100,7 @@ include "koneksi.php"
 						$query = mysql_query("SELECT * FROM proker WHERE STATUS_PROKER='Tidak Terlaksana' AND date_format(WAKTU_MULAI_PROKER, '%Y') = '$tahun'");
 						while ($data = mysql_fetch_array($query)){
 							echo "<a href=\"kaprodi_viewnotif.php\">".$data['NAMA_PROKER']."</a>";
+							echo "</br>";
 							}
 						}
 						?>
@@ -119,8 +118,7 @@ include "koneksi.php"
 				  	  $tahun="";}
 			?>
 			<div class="btn-group">
-				<button type="submit" class="btn btn-default" name="printsemua" value="printsemua">Print Semua</button>
-				<button type="submit" class="btn btn-default" name="printterpilih" value="printterpilih">Print Tahun Terpilih</button>
+				<button type="submit" class="btn btn-default" name="printsemua" value="printsemua">Print</button>
 			</div>
 		</form>
 	  </div><!-- /.box-body -->
