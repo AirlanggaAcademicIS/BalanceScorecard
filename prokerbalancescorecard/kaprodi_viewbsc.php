@@ -77,7 +77,7 @@ include "koneksi.php";
 							$id_tujuan=$row['id_tujuan'];
 							$query = mysql_query("SELECT nama_indikator_tujuan FROM indikator_tujuan WHERE id_tujuan='$id_tujuan'");
 								while ($data = mysql_fetch_array($query)){
-									echo "<a href=\"kaprodi_viewproker.php\">".ucwords($data['nama_indikator_tujuan'])."</a>";
+								echo "<a href=\"kaprodi_viewproker.php?idindikator=".$data['id_indikator_tujuan']."\">".ucwords($data['nama_indikator_tujuan'])."</a>";
 									echo "</br>";
 								}
 							echo "</td>";
