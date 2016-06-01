@@ -55,6 +55,7 @@ create table KARYAWAN
    NAMA                 varchar(50),
    JABATAN              varchar(20),
    PASSWORD             varchar(50),
+   NOMOR_TELEPON        varchar(20),
    TANGGAL_LAHIR        date,
    primary key (NIP)
 );
