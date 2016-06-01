@@ -117,7 +117,7 @@ include "koneksi.php"
 			</select>
 			</div>
 			
-			 <label>Indikator 1 yang mau diganti</label>
+			 <label>Indikator yang mau diganti</label>
 			<select name="Indikator1" style="width:100%" class="form-control" >
 				<option value="">Pilih Indikator </option> 
 				 <?php 
@@ -129,14 +129,14 @@ include "koneksi.php"
  		 		$query = mysql_query($data);
   				while($data2 = mysql_fetch_array($query))
   				{
-  					echo "<option Value = '".$data2['ID_INDIKATOR']."'>".$data2['NAMA_INDIKATOR_TUJUAN']."</option>>";
+  					echo "<option Value = '".$data2['ID_INDIKATOR_TUJUAN']."'>".$data2['NAMA_INDIKATOR_TUJUAN']."</option>>";
   				}
 				echo "\">";
 			  }
 			  ?>
 			</select> 
 			<label>
-			<div align="left">Indikator 1 baru</div>
+			<div align="left">Indikator  baru</div>
 			</label>
 		  <div align="left">
 		   
@@ -145,7 +145,7 @@ include "koneksi.php"
 			  </p>
 	 <input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="margin-top:5px; margin-bottom:5px ;"/>
 		  </div></div>
-		</form>
+		
 		 <label></label>
   
   <?php 
@@ -160,10 +160,8 @@ include "koneksi.php"
 				$query = mysql_query($sql);
   				$data2 = mysql_fetch_array($query);
 				
-			//if($_POST['Indikator1']!=NULL){	
-			//$sql = "ALTER INTO indikator_tujuan (NAMA_INDIKATOR_TUJUAN,ID_TUJUAN) VALUES ('".$_POST['Indikator1new']."',".$data2['ID_TUJUAN'].")";
+		
 			$sql = "UPDATE indikator_tujuan SET NAMA_INDIKATOR_TUJUAN = '".$_POST['Indikator1new']."' WHERE ID_INDIKATOR_TUJUAN =" .$_POST['Indikator1']  ;
-				mysql_query($sql);
 				}
 			else
 			{
@@ -172,7 +170,7 @@ include "koneksi.php"
 			}
 		
 		?>
-  
+  </form>
     </div>
      </form>
   </div>
