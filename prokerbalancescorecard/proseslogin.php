@@ -21,19 +21,24 @@ $password = mysql_real_escape_string($password);
 // SQL query to fetch information of registerd users and finds user match.
 $query = mysql_query("select * from karyawan where NIP='$username' AND PASSWORD='$password'");
 $rows = mysql_num_rows($query);
+$data = mysql_fetch_array($query);
 if ($rows == 1) {
 $_SESSION['login_user']=$username; // Initializing Session
-
+$_SESSION['jabatan'] = $data['JABATAN'];
+if($_SESSION['jabatan'] == "kaprodi"){
 header("location: kaprodi_home.php"); // Redirecting To Other Page
+}
+if($_SESSION['jabatan'] == "koordinator"){
+header("location: karyawan_home.php"); // Redirecting To Other Page
+}
 } 
+
 
 
 else {	
 include "gagallogin.php";
 }
 ?>
-
-
 
 <body>
 </body>
