@@ -1,4 +1,6 @@
-<?php include "koneksi.php"?>
+<?php include "koneksi.php";
+session_start();
+$_SESSION['id']=$_GET['id'];?> //menyambungkan ke database
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,13 +25,10 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="karyawan_home.php">Home</a></li>
-        <li><a href="karyawan_viewbsc.php">Balance Score Card</a></li>
+        <li ><a href="index.php">Home</a></li>
+        <li><a href="viewbsc.php">Balance Score Card</a></li>
         <li class="active"><a href="karyawan_viewproker.php">Program Kerja</a></li>
-        <li><a href="karyawan_viewlpj.php">Laporan Pertanggung Jawaban</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li><a href="viewlpj.php">Laporan Pertanggung Jawaban</a></li>
       </ul>
       </li>
     </div>
@@ -40,7 +39,7 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
      <p><button type="button" class="btn btn-primary btn-block disabled ">View Proker</button></p>
-	 <p><a href="karyawan_inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
+	 <p><a href="inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
     </div>
     
     <div class="col-sm-8 text-left"> 
@@ -48,8 +47,8 @@
         	<div class="form-group">
       			<label class="control-label col-sm-2">Nama Proker :</label>
       		<div class="col-sm-10">
-            <?php
-			$queri="Select * From proker where ID_PROKER=".$_GET['id1'];  //menampikan SEMUA data dari tabel siswa  
+           <?php
+			$queri="Select * From proker where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel 
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
@@ -61,23 +60,22 @@
          	<div class="form-group">
       			<label class="control-label col-sm-2">Notifikasi :</label>
      		<div class="col-sm-10">
-     		  <form name="notif" method="post" action="karyawan_inputnotif1.php" >
+     		  <form name="notif" method="post" action="karyawan_inputnotif1.php?id=<?php echo $_SESSION['id'];?>" >
               <textarea name="Notifikasi" rows="5" class="form-control" id="dp" type="text">
         	  </textarea>
-     		  <br>
-      		</div>
-      </div>	
-         <div class="col-sm-14 text-right">
-       <input class="btn btn-primary" type="submit" name="Submit" value="Simpan"/><br>
+     		  <br><div class="col-sm-14 text-right">
+    <input class="btn btn-primary" type="submit" name="Submit" value="Simpan"/><br>
        <form/>
 		<?php 
 		if(isset($_POST['Submit']))
 		{
 			if($_POST['Notifikasi']!="")
 			{
-				$sql = "INSERT INTO notifikasi (NOTIFIKASI,ID_PROKER) VALUES ('".$_POST['Notifikasi']."',".$_GET['id1'].")";// db
+				$sql = "INSERT INTO notifikasi (NOTIFIKASI,ID_PROKER) VALUES ('".$_POST['Notifikasi']."',".$_GET['id'].")";// db
 				mysql_query($sql);
 				
+				echo "<meta http-equiv='Refresh' content='0; url=karyawan_viewproker.php'>";
+				echo "<div class=\"form-group\"><div class=\"col-sm-12\"><div class=\"alert alert-success\">Data berhasil disimpan.</div></div></div>";
 			}
 			else
 			{
@@ -85,12 +83,16 @@
 			}
 			
 		}
+		$queri="Select * From notifikasi where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel 
+	  		$hasil=mysql_query ($queri);
+			$data= mysql_fetch_array($hasil);
+			 
+		mysql_query("UPDATE `proker` SET `ID_NOTIFIKASI`='".$data['ID_NOTIFIKASI']."' WHERE ID_PROKER =".$_GET['id']);    
+  
 		?>
        </div>
     </div>
     </div>
-</div>
-
 <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
       <p class="navbar-text center-block">&#169; Sistem Informasi Universitas Airlangga</p>
