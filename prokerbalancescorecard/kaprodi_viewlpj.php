@@ -46,7 +46,7 @@
     </div>
        <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Laporan Pertanggung Jawaban</h2>
-				<form id="form1" name="form1" method="post" action="viewlpj.php">
+				<form id="form1" name="form1" method="post" action="kaprodi_viewlpj.php">
 				<label for="sel1">Tahun</label>            
 				<select class="form-control" name="tahun" onChange='this.form.submit();'>
 				<option>Tahun</option>
@@ -88,7 +88,7 @@ while ($data = mysql_fetch_array ($hasil)){
         			<td>".$data[1]."</td>  
         			<td>".$data[2]."</td>  
         			<td>".$data[3]."</td>  
-					<td><a href=\"viewdetaillpj.php?id=".$id."\">"."Detail</a> "." || <a href=download.php?download_file=".$data[0].".doc\">"."Download LPJ</a>"."</td>
+					<td><a href=\"kaprodi_viewdetaillpj.php?id=".$id."\">"."Detail</a> "." || <a href=download.php?download_file=".$data[0].".doc\">"."Download LPJ</a>"."</td>
         		</tr>   
         	";      
 			}
