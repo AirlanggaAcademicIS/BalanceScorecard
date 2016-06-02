@@ -44,17 +44,20 @@
 		<br></br>
     	<p><button type="button" class="btn btn-primary btn-block disabled ">View LPJ</button></a></p>
     </div>
-    <div class="col-sm-8 text-left"> 
+       <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Laporan Pertanggung Jawaban</h2>
-				<form id="form1" name="form1" method="post" action="kaprodi_viewlpj.php">
+				<form id="form1" name="form1" method="post" action="viewlpj.php">
 				<label for="sel1">Tahun</label>            
 				<select class="form-control" name="tahun" onChange='this.form.submit();'>
 				<option>Tahun</option>
+                
  			<?php 
- 				for($i=2016;$i<=2021;$i++)
- 					{
- 						echo "<option value=".$i.">".$i."</option>";
-					 }
+ 			$queri1="select distinct YEAR(waktu_mulai_proker) from proker";
+			$hasil1=MySQL_query ($queri1);
+			while ($data1 = mysql_fetch_array($hasil1)){  
+					echo "<option value=".$data1['0'].">".$data1['0']."</option>";
+
+			}
 					?>
   		</select>
   </form>
@@ -64,7 +67,7 @@
                     <thead>
                         <tr>
                             <th>Nomor</th>
-			    <th>Id LPJ</th>
+							<th>Id LPJ</th>
                             <th>Nama Proker</th>
                             <th>Evaluasi</th>
                             <th>Keberlanjutan</th>
@@ -81,11 +84,11 @@ while ($data = mysql_fetch_array ($hasil)){
  			echo "      
         			<tr>  
         			<td>".$id."</td>
-				<td>".$data[0]."</td>  
+					<td>".$data[0]."</td>  
         			<td>".$data[1]."</td>  
         			<td>".$data[2]."</td>  
         			<td>".$data[3]."</td>  
-				<td><a href=\"viewdetaillpj.php?id=".$id."\">"."Detail</a> "." || <a href=download.php?download_file=".$data[0].".doc\">"."Download LPJ</a>"."</td>
+					<td><a href=\"viewdetaillpj.php?id=".$id."\">"."Detail</a> "." || <a href=download.php?download_file=".$data[0].".doc\">"."Download LPJ</a>"."</td>
         		</tr>   
         	";      
 			}
@@ -105,6 +108,7 @@ while ($data = mysql_fetch_array ($hasil)){
         </div>	
     </div>
 </div>
+
 
 <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
