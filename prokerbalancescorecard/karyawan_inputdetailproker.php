@@ -41,12 +41,13 @@
     <div class="col-sm-2 sidenav">
 		<img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 		<br></br>
-    	<p><a href="karyawan_viewproker.php"><button type="button" class="btn btn-primary btn-block active">View Proker</button></p>
-	 	<p><button type="button" class="btn btn-primary btn-block disabled">Detail Proker</button></a></p>
+    	<p><a href="karyawan_viewproker.php"><button type="button" class="btn btn-primary btn-block active">View Proker</button></a></p>
+	 	<p><button type="button" class="btn btn-primary btn-block disabled">Detail Proker</button></p>
     </div>
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Detail Program Kerja</h2>
-      <div class="form-group method="post" action="karyawan_viewproker.php">
+       <form id="form2" name="form2" method="post" action="karyawan_inputdetailproker.php?id=<?php echo $_SESSION['id']?>">
+	  <div class="form-group">
       		<label class="control-label col-sm-2">ID Proker :</label>
       <div class="col-sm-10">
        <?php
@@ -58,6 +59,7 @@
 			}
 				?>    	
       </div>
+	  </div>
       <div class="form-group">
       		<label class="control-label col-sm-2">NIP :</label>
       <div class="col-sm-10">
@@ -66,10 +68,11 @@
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
-				echo "<input type='text'  class='form-control' id='nip' disabled value='".$data['NIP']."'><br>";
+				echo "<input type='text'  class='form-control' id='nip' name='nip' disabled value='".$data['NIP']."'><br>";
 			}
 				?>    	
       </div>
+	  </div>
      <div class="form-group">
       		<label class="control-label col-sm-2">Nama Proker :</label>
       <div class="col-sm-10">
@@ -78,7 +81,7 @@
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
-				echo "<input type='text'  class='form-control' id='namaproker' disabled value='".$data['NAMA_PROKER']."'><br>";
+				echo "<input type='text'  class='form-control' id='namaproker' name='namaproker' disabled value='".$data['NAMA_PROKER']."'><br>";
 			}
 				?>    	
       </div>
@@ -91,7 +94,7 @@
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
-				echo "<textarea class='form-control' id='pendahuluan' >".$data['PENDAHULUAN']."</textarea><br>";
+				echo "<textarea class='form-control' id='pendahuluan' name='pendahuluan' >".$data['PENDAHULUAN']."</textarea><br>";
 			}
 				?> 
       </div>	
@@ -104,7 +107,7 @@
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
-				echo "<textarea class='form-control' id='latarbelakang' >".$data['LATAR_BELAKANG']."</textarea><br>";
+				echo "<textarea class='form-control' id='latarbelakang' name='latarbelakang' >".$data['LATAR_BELAKANG']."</textarea><br>";
 			}
 				?> 
       </div>	
@@ -117,7 +120,7 @@
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
-				echo "<textarea class='form-control' id='tujuan' >".$data['TUJUAN']."</textarea><br>";
+				echo "<textarea class='form-control' id='tujuan' name='tujuan' >".$data['TUJUAN']."</textarea><br>";
 			}
 				?> 
       </div>	
@@ -130,7 +133,7 @@
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
-				echo "<textarea class='form-control' id='deskripsi' >".$data['DESKRIPSI']."</textarea><br>";
+				echo "<textarea class='form-control' id='deskripsi' name='deskripsi' >".$data['DESKRIPSI']."</textarea><br>";
 			}
 				?> 
       </div>	
@@ -144,7 +147,7 @@
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
-				echo "<textarea class='form-control' id='mekanisme_rancangan' >".$data['MEKANISME_DAN_RANCANGAN']."</textarea><br>";
+				echo "<textarea class='form-control' id='mekanisme_rancangan' name='mekanisme_rancangan' >".$data['MEKANISME_DAN_RANCANGAN']."</textarea><br>";
 			}
 				?> 
       </div>	
@@ -159,25 +162,18 @@
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
-				echo "<input type='text'  class='form-control' id='anggaran' value='".$data['ANGGARAN_DANA']."'><br>";
+				echo "<input type='text'  class='form-control' id='anggaran' name='anggaran' value='".$data['ANGGARAN_DANA']."'><br>";
 			}
 				?>    
       </div>
     </div>
     
-    <div class="form-group">
-      		<label class="control-label col-sm-2">Upload LPJ :</label>
-       <div class="col-sm-10">
-       <input type="file" name="myFile" size="50"><br>
-   		 </div> 
-      </div>
-    
-    <input type="submit" name="simpan" value="Simpan" class="btn btn-primary"/><br><br><br><br><br>  
+     <div class="col-sm-12">
+    <input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="float:right;"/><br><br><br><br><br>  
+	</div>
+	<form/>
     <?php
-if(isset ($_POST['simpan'])){
-
-
-
+if(isset($_POST['simpan'])){
 mysql_query("UPDATE `proker` SET `ANGGARAN_DANA`='".$_POST['anggaran']."',`LATAR_BELAKANG`='".$_POST['latarbelakang']."',`TUJUAN`='".$_POST['tujuan']."',`MEKANISME_DAN_RANCANGAN`='".$_POST['mekanisme_rancangan']."',`PENDAHULUAN`='".$_POST['pendahuluan']."' WHERE ID_PROKER =".$_GET['id']);
 }
 ?>
