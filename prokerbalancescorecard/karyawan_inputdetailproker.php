@@ -1,4 +1,7 @@
-<?php include "koneksi.php"?>
+<?php include "koneksi.php";
+session_start();
+$_SESSION['id']=$_GET['id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
