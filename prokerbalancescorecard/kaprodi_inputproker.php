@@ -106,7 +106,7 @@
 				?>
 				
 				<option value="">------ Proses bisnis internal -----</option>
-				<?php $data = "select * from tujuan where perspektif ='Proses bisnis intenal'";
+				<?php $data = "select * from tujuan where perspektif ='Proses bisnis internal'";
 				
  		 		$query = mysql_query($data);
   				while($data2 = mysql_fetch_array($query))
