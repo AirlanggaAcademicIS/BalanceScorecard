@@ -117,6 +117,12 @@ function MM_validateForm() { //v4.0
 				?>
       </div>
 		</div>
+		<div class="navbar navbar-inverse navbar-fixed-bottom">
+<footer class="container-fluid text-center">
+  <p>Sistem Informasi Universitas Airlangga</p>
+</div>  
+</footer>
+
 
 </body>
 </html>
