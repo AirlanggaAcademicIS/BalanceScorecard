@@ -113,6 +113,8 @@ function MM_validateForm() { //v4.0
                 <?php
 				if(isset ($_POST['reset'])){
 				 	mysql_query("UPDATE `karyawan` SET `PASSWORD`='".$_POST['resetpass']."' WHERE NIP =".$_REQUEST['NIP']);
+				 	echo "<div class=\"form-group\"><div class=\"col-sm-12\"><div class=\"alert alert-success\">Password berhasil direset !</div></div></div>";
+				 	echo "<meta http-equiv='Refresh' content='0; url=index.php'>";
 					}
 				?>
       </div>
