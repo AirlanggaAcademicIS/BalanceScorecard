@@ -80,7 +80,7 @@ function MM_validateForm() { //v4.0
             <h2 class="text-center">Masukkan Nomor HP Anda</h2>
 <form name="form2" method="post" action="lupapass.php?NIP=<?php echo $_SESSION['NIP'];?>">
 <div class="form-group">
-      <div class="col-sm-10">
+      <div class="col-sm-4">
       
       	<input type='text'  class='form-control' name='nomorhp'/>
         <input type="submit" name="cek" value="Cek" class="btn btn-primary"/>
