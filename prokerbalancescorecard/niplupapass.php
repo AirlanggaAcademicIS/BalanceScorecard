@@ -78,7 +78,7 @@ function MM_validateForm() { //v4.0
     <form action="niplupapass.php" method="post">
     
     <div class="form-group">
-      		
+    <div class="col-sm-4">  		
       
          <input name="NIP/NIK" type="text" id="NIP/NIK" class="form-control" placeholder="NIP atau NIK" onBlur="MM_validateForm('NIP/NIK','','NisNum');return document.MM_returnValue" size="25" required="required" />
       
@@ -87,6 +87,7 @@ function MM_validateForm() { //v4.0
     <p onfocus="MM_validateForm('NIP/NIK','','RisNum');return document.MM_returnValue">
          <input type="submit" name="next" value="Next" class="btn btn-primary" ; mm_validateform('nip/nik','','risnum');return document.mm_returnvalue">
        </p>  
+       </div>
        </div>
        </form>
        <?php
