@@ -225,7 +225,7 @@
 		{
 			if($_POST['proker']!=NULL&&$_POST['tujuan']!=""&&$_POST['koordinator']!=""&&$_POST['coldate1']!=NULL&&$_POST['coldate2']!=NULL&&sizeof($_POST['check_list'])!=1)
 			{
-				$sql = "INSERT INTO proker (NAMA_PROKER,NIP,WAKTU_MULAI_PROKER,WAKTU_AKHIR_PROKER,STATUS_PROKER) VALUES ('".$_POST['proker']."','".$_POST['koordinator']."','".$_POST['coldate1']."','".$_POST['coldate2']."','Belum terlaksana')";
+				$sql = "INSERT INTO proker (NAMA_PROKER,NIP,WAKTU_MULAI_PROKER,WAKTU_AKHIR_PROKER,STATUS_PROKER) VALUES ('".$_POST['proker']."','".$_POST['koordinator']."','".$_POST['coldate1']."','".$_POST['coldate2']."','Proker baru')";
 				mysql_query($sql);
 				
 				$sql = "SELECT ID_PROKER from proker WHERE NAMA_PROKER ='".$_POST['proker']."'";
