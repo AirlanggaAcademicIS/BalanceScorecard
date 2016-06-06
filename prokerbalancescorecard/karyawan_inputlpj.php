@@ -64,7 +64,7 @@ $_SESSION['idnya']=$_GET['id'];
 				$query = mysql_query($sql);
 				$data2 = mysql_fetch_array($query);
 				
-				$sql2 = "UPDATE proker SET ID_LPJ = ".$data2['ID_LPJ']." WHERE ID_PROKER = ".$_REQUEST['idproker'];
+				$sql2 = "UPDATE proker SET ID_LPJ = ".$data2['ID_LPJ'].", STATUS_PROKER='Terlaksana' WHERE ID_PROKER = ".$_REQUEST['idproker'];
 				mysql_query($sql2);
 				
 				if(isset($_FILES["myFile"]["error"]))
