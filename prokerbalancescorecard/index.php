@@ -41,37 +41,36 @@ function MM_validateForm() { //v4.0
 </script>
 <style type="text/css">
 <!--
-.style2 {
-	font-size: 17px;
-	color: #FFFFFF;
-}
 .style4 {font-size: 21px}
+.style5 {color: #FFFFFF}
+.style6 {font-size: 17px}
+.style9 {font-weight: bold}
 -->
 </style>
 </head>
 
 
 <body>
+    <strong>
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar"> </div>
+<div class="container-fluid">
+    </strong>
+    <div class="navbar-header">  </div>
+  <div class="collapse navbar-collapse style9" id="myNavbar">
+        <div class="panel-body style2 style1 style5">
+          <div align="center" class="style6">Balance ScoreCard</div>
+        </div>
   </div>
-  <br>
-    <div align="center" class="style2">Balanced ScoreCard</div>
-</nav>
+  <strong>
+  </nav>
+  </strong>
 <div id="theme-login-wrapper">
 		
 <div class="container-fluid">
   <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+    <button type="button" class="navbar-toggle style5" data-toggle="collapse" data-target="#myNavbar">    </button>
   </div>
-  <div class="collapse navbar-collapse" id="div"> </div>
+  <div class="collapse navbar-collapse style5" id="div"> </div>
 </div>
 <h2 class="text-center style4">Silahkan Login </h2>
 <div class="grid_12">
@@ -93,8 +92,7 @@ function MM_validateForm() { //v4.0
 								
 <td width="358"><p>
   <input name="NIP/NIK" type="text" id="NIP/NIK" class="form-control" placeholder="NIP atau NIK" onBlur="MM_validateForm('NIP/NIK','','NisNum');return document.MM_returnValue" size="25" required="required" />
-  </p>
-  </tr>
+</p>  </tr>
 						
 <tr>
 								
@@ -102,8 +100,7 @@ function MM_validateForm() { //v4.0
   <td><p>
   <input name="password" type="password" id="password" size="25" class="form-control" placeholder="password" required="required" />
   </p>
-    <p>&nbsp;</p>
-  </tr>
+    <p>&nbsp;</p>  </tr>
 
 <tr>
 								
@@ -115,20 +112,14 @@ function MM_validateForm() { //v4.0
        <p onfocus="MM_validateForm('NIP/NIK','','RisNum','password','','R');return document.MM_returnValue">
          <input type="submit" name="login" value="Login" class="btn btn-primary" ; mm_validateform('nip/nik','','risnum','password','','r');return document.mm_returnvalue">
        </p>
-       </div> 
-       </form>
-       <form action="niplupapass.php" method="post">
-       
+       </div>     
      <div align="right">
          <input type="submit" name="Submit" value="Lupa Password ?" class="btn btn-primary">
-         </td>
          </div>
-         </form>
      </label></td>
 </tr>
 </table>
-					
-				
+</form>
 </div>
   </div>	 
 </div>
@@ -137,7 +128,6 @@ function MM_validateForm() { //v4.0
   <p>Sistem Informasi Universitas Airlangga</p>
 </div>  
 </footer>
-
 </body>
 
 </html>

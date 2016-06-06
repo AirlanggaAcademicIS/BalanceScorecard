@@ -14,30 +14,22 @@
   <style type="text/css">
 <!--
 .style2 {font-size: 17px}
-.style3 {
-	font-size: 18px;
-	color: #FFFFFF;
-}
 .style5 {font-size: 17px; font-weight: bold; }
+.style6 {color: #FFFFFF}
 -->
   </style>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+<div class="container-fluid">
     <div class="navbar-header">
-      <span class="style2">
-      <button type="button" class="navbar-toggle style2" data-toggle="collapse" data-target="#myNavbar">        </button>
-    </span></div>
-    <div class="collapse navbar-collapse style3" id="myNavbar"> </div>
   </div>
-  <span class="style3"><br>
-  </span>
-  <div align="center" class="style3">Balanced ScoreCard</div>
+  <div class="collapse navbar-collapse" id="myNavbar">
+        <div class="panel-body style2 style1 style5">
+          <div align="center" class="style6">Balance ScoreCard</div>
+        </div>
+  </div>
 </nav>
-<div class="navbar-header">
-  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-</div>
 <div class="grid_12">
 			
 <div class="theme-login-body">
