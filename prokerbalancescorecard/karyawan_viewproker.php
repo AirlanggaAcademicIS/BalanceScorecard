@@ -1,6 +1,7 @@
 <?php  
 //membuat koneksi ke database  
-include "koneksi.php"; 
+include "koneksi.php";
+session_start();
 ?> 
 
 <!DOCTYPE html>
