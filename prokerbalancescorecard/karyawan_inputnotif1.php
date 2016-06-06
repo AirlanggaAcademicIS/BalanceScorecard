@@ -87,7 +87,7 @@ $_SESSION['id']=$_GET['id'];?> //menyambungkan ke database
 	  		$hasil=mysql_query ($queri);
 			$data= mysql_fetch_array($hasil);
 			 
-		mysql_query("UPDATE `proker` SET `ID_NOTIFIKASI`='".$data['ID_NOTIFIKASI']."' WHERE ID_PROKER =".$_GET['id']);    
+		mysql_query("UPDATE `proker` SET `ID_NOTIFIKASI`='".$data['ID_NOTIFIKASI']."', STATUS_PROKER ='Tidak terlaksana' WHERE ID_PROKER =".$_GET['id']);    
   
 		?>
        </div>
