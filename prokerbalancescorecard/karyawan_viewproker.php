@@ -56,7 +56,7 @@ session_start();
     <li><a data-toggle="tab" href="#tidakterlaksana">Tidak Terlaksana</a></li>
   	</ul>
 <div class="tab-content">
-    <div id="terlaksana" class="tab-pane fade in active"><br>
+    <div id="terlaksana" class="tab-pane fade"><br>
       <div class="box-body table-responsive">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -133,7 +133,7 @@ session_start();
 				</table>
     		</div>
         </div>	
-    <div id="belumterlaksana" class="tab-pane fade"><br>
+    <div id="belumterlaksana" class="tab-pane fade in active"><br>
    		<div class="box-body table-responsive">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
