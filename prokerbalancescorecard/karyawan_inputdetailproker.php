@@ -128,19 +128,7 @@ $_SESSION['id']=$_GET['id'];
 				?> 
       </div>	
     </div>
-      <div class="form-group">
-      	<label class="control-label col-sm-2">Deskripsi :</label>
-     	<div class="col-sm-10">
-         <?php
-			$queri="Select * From proker where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel siswa  
-	  		$hasil=MySQL_query ($queri);
-			
-			while ($data = mysql_fetch_array ($hasil)){
-				echo "<textarea class='form-control' id='deskripsi' name='deskripsi' >".$data['DESKRIPSI']."</textarea><br>";
-			}
-				?> 
-      </div>	
-    </div>
+      
     
     <div class="form-group">
       	<label class="control-label col-sm-2">Mekanisme dan Rancangan :</label>
