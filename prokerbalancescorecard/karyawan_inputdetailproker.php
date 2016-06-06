@@ -177,7 +177,7 @@ $_SESSION['id']=$_GET['id'];
 	<form/>
     <?php
 if(isset($_POST['simpan'])){
-mysql_query("UPDATE `proker` SET `ANGGARAN_DANA`='".$_POST['anggaran']."',`LATAR_BELAKANG`='".$_POST['latarbelakang']."',`TUJUAN`='".$_POST['tujuan']."',`MEKANISME_DAN_RANCANGAN`='".$_POST['mekanisme_rancangan']."',`PENDAHULUAN`='".$_POST['pendahuluan']."' WHERE ID_PROKER =".$_GET['id']);
+mysql_query("UPDATE `proker` SET `ANGGARAN_DANA`='".$_POST['anggaran']."',`LATAR_BELAKANG`='".$_POST['latarbelakang']."',`TUJUAN`='".$_POST['tujuan']."',`MEKANISME_DAN_RANCANGAN`='".$_POST['mekanisme_rancangan']."',`PENDAHULUAN`='".$_POST['pendahuluan']."', STATUS_PROKER='Belum terlaksana' WHERE ID_PROKER =".$_GET['id']);
 }
 ?>
 			</div> 
