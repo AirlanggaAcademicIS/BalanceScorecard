@@ -82,7 +82,7 @@ include "koneksi.php"
 						$tahun = $_POST['tahun'];
 						$query = mysql_query("SELECT * FROM proker WHERE STATUS_PROKER='Terlaksana' AND date_format(WAKTU_MULAI_PROKER, '%Y') = '$tahun'");
 						while ($data = mysql_fetch_array($query)){
-							echo "<a href=\"kaprodi_viewlpj.php\">".$data['NAMA_PROKER']."</a>";
+							echo "<a href=\"kaprodi_viewdetaillpj.php?id=".$data['ID_LPJ']."\">".$data['NAMA_PROKER']."</a>";
 							echo "</br>";
 							}
 						}
