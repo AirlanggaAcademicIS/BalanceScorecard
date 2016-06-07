@@ -51,7 +51,27 @@ include "koneksi.php";
     </div>
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">View Program Kerja</h2>
-            <div class="box-body table-responsive">
+            <?php 
+			if(isset($_GET['id']))
+				{
+					$query = "SELECT * FROM tujuan WHERE ID_TUJUAN =".$_GET['id'];
+					$hasil = mysql_query($query);
+					$data = mysql_fetch_array($hasil);
+					echo "Perspektif : ".$data['PERSPEKTIF']."<br>Tujuan	: ".$data['TUJUAN_ORGANISASI'];
+				}
+				else
+				if(isset($_GET['idindikator']))
+				{
+					$query = "SELECT * FROM indikator_tujuan i, tujuan t WHERE i.ID_TUJUAN=t.ID_TUJUAN AND i.ID_INDIKATOR_TUJUAN =".$_GET['idindikator'];
+					$hasil = mysql_query($query);
+					$data = mysql_fetch_array($hasil);
+					echo "Perspektif : ".$data['PERSPEKTIF']."<br>Tujuan	: ".$data['TUJUAN_ORGANISASI']."<br>Indikator	: ".$data['NAMA_INDIKATOR_TUJUAN'];
+				}
+				else
+				{
+				
+				}?>
+			<div class="box-body table-responsive">
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -59,7 +79,14 @@ include "koneksi.php";
 						<th>Nama Program Kerja</th>
 						<th>Nama Koordinator</th>
 						<th>Target Waktu</th>
-						<th>Perspektif</th>
+						<?php if(isset($_GET['id'])||isset($_GET['idindikator']))
+						{
+						}
+						else
+						{
+							echo "<th>Perspektif</th>";
+						}?>
+						<th>Aksi</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -75,7 +102,7 @@ include "koneksi.php";
 								  <td>".ucwords($data['nama_proker'])."</td>
 								  <td>".ucwords($data['nama'])."</td>
 								  <td>".$data['waktu_mulai_proker']." - ".$data['waktu_akhir_proker']."</td>
-								  <td>".ucwords($data['perspektif'])."</td>
+								  <td><a href=\"kaprodi_viewdetailproker.php?id=".$data['id_proker']."\">"."Detail</a> "."</td>
 								  </tr>";}
 							echo '</table>';
 						}
@@ -90,7 +117,7 @@ include "koneksi.php";
 								  <td>".ucwords($data['nama_proker'])."</td>
 								  <td>".ucwords($data['nama'])."</td>
 								  <td>".$data['waktu_mulai_proker']." - ".$data['waktu_akhir_proker']."</td>
-								  <td>".ucwords($data['perspektif'])."</td>
+								  <td><a href=\"kaprodi_viewdetailproker.php?id=".$data['id_proker']."\">"."Detail</a> "."</td>
 								  </tr>";}
 							echo '</table>';
 						}
@@ -105,6 +132,7 @@ include "koneksi.php";
 								  <td>".ucwords($data['nama'])."</td>
 								  <td>".$data['waktu_mulai_proker']." - ".$data['waktu_akhir_proker']."</td>
 								  <td>".ucwords($data['perspektif'])."</td>
+								  <td><a href=\"kaprodi_viewdetailproker.php?id=".$data['id_proker']."\">"."Detail</a> "."</td>
 								  </tr>";}
 							echo '</table>';
 							}
