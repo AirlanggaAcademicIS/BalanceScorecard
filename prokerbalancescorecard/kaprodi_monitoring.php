@@ -94,13 +94,12 @@ include "koneksi.php"
       			</tr>
       			<tr>
         			<td>
-					<?php
+				<?php
 					if(isset($_POST['tahun'])){
 						$tahun = $_POST['tahun'];
 						$query = mysql_query("SELECT * FROM proker WHERE STATUS_PROKER='Tidak Terlaksana' AND date_format(WAKTU_MULAI_PROKER, '%Y') = '$tahun'");
 						while ($data = mysql_fetch_array($query)){
-							echo "<a href=\"kaprodi_viewnotif.php\">".$data['NAMA_PROKER']."</a>";
-							echo "</br>";
+							echo "<a href=\"kaprodi_viewnotif.php?id1=".$data['ID_NOTIFIKASI']."\">".$data['NAMA_PROKER']."</a>";
 							}
 						}
 						?>
