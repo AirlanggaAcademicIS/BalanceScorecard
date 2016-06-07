@@ -89,8 +89,8 @@
   				}
 				?>
 				
-				<option value="">------ Customer -----</option>
-				<?php $data = "select * from tujuan where perspektif ='Customer'";
+				<option value="">------ Pemangku kepentingan -----</option>
+				<?php $data = "select * from tujuan where perspektif ='Pemangku kepentingan'";
 				
  		 		$query = mysql_query($data);
   				while($data2 = mysql_fetch_array($query))
