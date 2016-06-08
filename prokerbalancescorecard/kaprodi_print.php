@@ -5,7 +5,7 @@ require('fpdf/fpdf.php');
 //Menampilkan data dari tabel di database
 
 $result=mysql_query("SELECT id_proker, nama_proker, tujuan, anggaran_dana, status_proker, waktu_mulai_proker, waktu_akhir_proker FROM proker 
-WHERE status_proker='TERLAKSANA' OR status_proker='TIDAK TERLAKSANA' ORDER BY id_proker") or die(mysql_error());}
+WHERE status_proker='TERLAKSANA' OR status_proker='TIDAK TERLAKSANA' ORDER BY id_proker") or die(mysql_error());
 
 
 
