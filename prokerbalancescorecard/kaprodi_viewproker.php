@@ -57,7 +57,7 @@ include "koneksi.php";
 					$query = "SELECT * FROM tujuan WHERE ID_TUJUAN =".$_GET['id'];
 					$hasil = mysql_query($query);
 					$data = mysql_fetch_array($hasil);
-					echo "Perspektif : ".$data['PERSPEKTIF']."<br>Tujuan	: ".$data['TUJUAN_ORGANISASI'];
+					echo "<label>Perspektif : ".$data['PERSPEKTIF']."<br>Tujuan	: ".$data['TUJUAN_ORGANISASI']."</label>";
 				}
 				else
 				if(isset($_GET['idindikator']))
@@ -65,13 +65,14 @@ include "koneksi.php";
 					$query = "SELECT * FROM indikator_tujuan i, tujuan t WHERE i.ID_TUJUAN=t.ID_TUJUAN AND i.ID_INDIKATOR_TUJUAN =".$_GET['idindikator'];
 					$hasil = mysql_query($query);
 					$data = mysql_fetch_array($hasil);
-					echo "Perspektif : ".$data['PERSPEKTIF']."<br>Tujuan	: ".$data['TUJUAN_ORGANISASI']."<br>Indikator	: ".$data['NAMA_INDIKATOR_TUJUAN'];
+					echo "<label>Perspektif : ".$data['PERSPEKTIF']."<br>Tujuan	: ".$data['TUJUAN_ORGANISASI']."<br>Indikator	: ".$data['NAMA_INDIKATOR_TUJUAN']."</label>";
 				}
 				else
 				{
 				
 				}?>
 			<div class="box-body table-responsive">
+			<label>Terlaksana</label>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -95,7 +96,7 @@ include "koneksi.php";
 						if(isset($_GET['id']))
 						{
 						$i=0;
-						$query = mysql_query("SELECT distinct t.perspektif, p.id_proker, p.nama_proker, k.nama, DATE_FORMAT(p.waktu_mulai_proker, '%d/%m/%Y') AS waktu_mulai_proker, DATE_FORMAT(p.waktu_akhir_proker, '%d/%m/%Y') AS waktu_akhir_proker FROM proker p, menunjang m, karyawan k, indikator_tujuan i, tujuan t WHERE p.NIP=k.NIP AND p.id_proker=m.id_proker AND m.id_indikator_tujuan=i.id_indikator_tujuan AND i.id_tujuan=t.id_tujuan AND t.id_tujuan=".$_GET['id']);
+						$query = mysql_query("SELECT distinct t.perspektif, p.id_proker, p.nama_proker, k.nama, DATE_FORMAT(p.waktu_mulai_proker, '%d/%m/%Y') AS waktu_mulai_proker, DATE_FORMAT(p.waktu_akhir_proker, '%d/%m/%Y') AS waktu_akhir_proker FROM proker p, menunjang m, karyawan k, indikator_tujuan i, tujuan t WHERE p.NIP=k.NIP AND p.id_proker=m.id_proker AND m.id_indikator_tujuan=i.id_indikator_tujuan AND i.id_tujuan=t.id_tujuan AND p.status_proker='Terlaksana' AND t.id_tujuan=".$_GET['id']);
 						while ($data = mysql_fetch_array($query)){
 							$i++;
 							echo "<td>".$i."</td>
@@ -110,7 +111,7 @@ include "koneksi.php";
 						if(isset($_GET['idindikator']))
 						{
 						$i=0;
-						$query = mysql_query("SELECT distinct t.perspektif, p.id_proker, p.nama_proker, k.nama, DATE_FORMAT(p.waktu_mulai_proker, '%d/%m/%Y') AS waktu_mulai_proker, DATE_FORMAT(p.waktu_akhir_proker, '%d/%m/%Y') AS waktu_akhir_proker FROM proker p, menunjang m, karyawan k, indikator_tujuan i, tujuan t WHERE p.NIP=k.NIP AND p.id_proker=m.id_proker AND m.id_indikator_tujuan=i.id_indikator_tujuan AND i.id_tujuan=t.id_tujuan AND i.id_indikator_tujuan=".$_GET['idindikator']);
+						$query = mysql_query("SELECT distinct t.perspektif, p.id_proker, p.nama_proker, k.nama, DATE_FORMAT(p.waktu_mulai_proker, '%d/%m/%Y') AS waktu_mulai_proker, DATE_FORMAT(p.waktu_akhir_proker, '%d/%m/%Y') AS waktu_akhir_proker FROM proker p, menunjang m, karyawan k, indikator_tujuan i, tujuan t WHERE p.NIP=k.NIP AND p.id_proker=m.id_proker AND m.id_indikator_tujuan=i.id_indikator_tujuan AND i.id_tujuan=t.id_tujuan AND p.status_proker='Terlaksana' AND i.id_indikator_tujuan=".$_GET['idindikator']);
 						while ($data = mysql_fetch_array($query)){
 							$i++;
 							echo "<td>".$i."</td>
@@ -124,7 +125,7 @@ include "koneksi.php";
 						else
 						{
 						$i=0;
-						$query = mysql_query("SELECT distinct t.perspektif, p.id_proker, p.nama_proker, k.nama, DATE_FORMAT(p.waktu_mulai_proker, '%d/%m/%Y') AS waktu_mulai_proker, DATE_FORMAT(p.waktu_akhir_proker, '%d/%m/%Y') AS waktu_akhir_proker FROM proker p, menunjang m, karyawan k, indikator_tujuan i, tujuan t WHERE p.NIP=k.NIP AND p.id_proker=m.id_proker AND m.id_indikator_tujuan=i.id_indikator_tujuan AND i.id_tujuan=t.id_tujuan");
+						$query = mysql_query("SELECT distinct t.perspektif, p.id_proker, p.nama_proker, k.nama, DATE_FORMAT(p.waktu_mulai_proker, '%d/%m/%Y') AS waktu_mulai_proker, DATE_FORMAT(p.waktu_akhir_proker, '%d/%m/%Y') AS waktu_akhir_proker FROM proker p, menunjang m, karyawan k, indikator_tujuan i, tujuan t WHERE p.NIP=k.NIP AND p.id_proker=m.id_proker AND m.id_indikator_tujuan=i.id_indikator_tujuan AND p.status_proker='Terlaksana' AND i.id_tujuan=t.id_tujuan");
 						while ($data = mysql_fetch_array($query)){
 							$i++;
 							echo "<td>".$i."</td>
@@ -141,6 +142,151 @@ include "koneksi.php";
 				</tbody>
 			</table>
 			</div><!-- /.box-body -->
+			
+			<div class="box-body table-responsive">
+			<label>Tidak Terlaksana</label>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Nama Program Kerja</th>
+						<th>Nama Koordinator</th>
+						<th>Target Waktu</th>
+						<?php if(isset($_GET['id'])||isset($_GET['idindikator']))
+						{
+						}
+						else
+						{
+							echo "<th>Perspektif</th>";
+						}?>
+						<th>Aksi</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<?php
+						if(isset($_GET['id']))
+						{
+						$i=0;
+						$query = mysql_query("SELECT distinct t.perspektif, p.id_proker, p.nama_proker, k.nama, DATE_FORMAT(p.waktu_mulai_proker, '%d/%m/%Y') AS waktu_mulai_proker, DATE_FORMAT(p.waktu_akhir_proker, '%d/%m/%Y') AS waktu_akhir_proker FROM proker p, menunjang m, karyawan k, indikator_tujuan i, tujuan t WHERE p.NIP=k.NIP AND p.id_proker=m.id_proker AND m.id_indikator_tujuan=i.id_indikator_tujuan AND i.id_tujuan=t.id_tujuan AND p.status_proker='Tidak terlaksana' AND t.id_tujuan=".$_GET['id']);
+						while ($data = mysql_fetch_array($query)){
+							$i++;
+							echo "<td>".$i."</td>
+								  <td>".ucwords($data['nama_proker'])."</td>
+								  <td>".ucwords($data['nama'])."</td>
+								  <td>".$data['waktu_mulai_proker']." - ".$data['waktu_akhir_proker']."</td>
+								  <td><a href=\"kaprodi_viewdetailproker.php?id=".$data['id_proker']."\">"."Detail</a> "."</td>
+								  </tr>";}
+							echo '</table>';
+						}
+						else
+						if(isset($_GET['idindikator']))
+						{
+						$i=0;
+						$query = mysql_query("SELECT distinct t.perspektif, p.id_proker, p.nama_proker, k.nama, DATE_FORMAT(p.waktu_mulai_proker, '%d/%m/%Y') AS waktu_mulai_proker, DATE_FORMAT(p.waktu_akhir_proker, '%d/%m/%Y') AS waktu_akhir_proker FROM proker p, menunjang m, karyawan k, indikator_tujuan i, tujuan t WHERE p.NIP=k.NIP AND p.id_proker=m.id_proker AND m.id_indikator_tujuan=i.id_indikator_tujuan AND i.id_tujuan=t.id_tujuan AND p.status_proker='Tidak terlaksana' AND i.id_indikator_tujuan=".$_GET['idindikator']);
+						while ($data = mysql_fetch_array($query)){
+							$i++;
+							echo "<td>".$i."</td>
+								  <td>".ucwords($data['nama_proker'])."</td>
+								  <td>".ucwords($data['nama'])."</td>
+								  <td>".$data['waktu_mulai_proker']." - ".$data['waktu_akhir_proker']."</td>
+								  <td><a href=\"kaprodi_viewdetailproker.php?id=".$data['id_proker']."\">"."Detail</a> "."</td>
+								  </tr>";}
+							echo '</table>';
+						}
+						else
+						{
+						$i=0;
+						$query = mysql_query("SELECT distinct t.perspektif, p.id_proker, p.nama_proker, k.nama, DATE_FORMAT(p.waktu_mulai_proker, '%d/%m/%Y') AS waktu_mulai_proker, DATE_FORMAT(p.waktu_akhir_proker, '%d/%m/%Y') AS waktu_akhir_proker FROM proker p, menunjang m, karyawan k, indikator_tujuan i, tujuan t WHERE p.NIP=k.NIP AND p.id_proker=m.id_proker AND m.id_indikator_tujuan=i.id_indikator_tujuan AND i.id_tujuan=t.id_tujuan AND p.status_proker='Tidak terlaksana'");
+						while ($data = mysql_fetch_array($query)){
+							$i++;
+							echo "<td>".$i."</td>
+								  <td>".ucwords($data['nama_proker'])."</td>
+								  <td>".ucwords($data['nama'])."</td>
+								  <td>".$data['waktu_mulai_proker']." - ".$data['waktu_akhir_proker']."</td>
+								  <td>".ucwords($data['perspektif'])."</td>
+								  <td><a href=\"kaprodi_viewdetailproker.php?id=".$data['id_proker']."\">"."Detail</a> "."</td>
+								  </tr>";}
+							echo '</table>';
+							}
+						?>
+					</tr>
+				</tbody>
+			</table>
+			</div><!-- /.box-body -->
+			
+			<div class="box-body table-responsive">
+			<label>Belum Terlaksana</label>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Nama Program Kerja</th>
+						<th>Nama Koordinator</th>
+						<th>Target Waktu</th>
+						<?php if(isset($_GET['id'])||isset($_GET['idindikator']))
+						{
+						}
+						else
+						{
+							echo "<th>Perspektif</th>";
+						}?>
+						<th>Aksi</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<?php
+						if(isset($_GET['id']))
+						{
+						$i=0;
+						$query = mysql_query("SELECT distinct t.perspektif, p.id_proker, p.nama_proker, k.nama, DATE_FORMAT(p.waktu_mulai_proker, '%d/%m/%Y') AS waktu_mulai_proker, DATE_FORMAT(p.waktu_akhir_proker, '%d/%m/%Y') AS waktu_akhir_proker FROM proker p, menunjang m, karyawan k, indikator_tujuan i, tujuan t WHERE p.NIP=k.NIP AND p.id_proker=m.id_proker AND m.id_indikator_tujuan=i.id_indikator_tujuan AND i.id_tujuan=t.id_tujuan AND (p.status_proker='Belum terlaksana' OR p.status_proker='Proker baru') AND t.id_tujuan=".$_GET['id']);
+						while ($data = mysql_fetch_array($query)){
+							$i++;
+							echo "<td>".$i."</td>
+								  <td>".ucwords($data['nama_proker'])."</td>
+								  <td>".ucwords($data['nama'])."</td>
+								  <td>".$data['waktu_mulai_proker']." - ".$data['waktu_akhir_proker']."</td>
+								  <td><a href=\"kaprodi_viewdetailproker.php?id=".$data['id_proker']."\">"."Detail</a> "."</td>
+								  </tr>";}
+							echo '</table>';
+						}
+						else
+						if(isset($_GET['idindikator']))
+						{
+						$i=0;
+						$query = mysql_query("SELECT distinct t.perspektif, p.id_proker, p.nama_proker, k.nama, DATE_FORMAT(p.waktu_mulai_proker, '%d/%m/%Y') AS waktu_mulai_proker, DATE_FORMAT(p.waktu_akhir_proker, '%d/%m/%Y') AS waktu_akhir_proker FROM proker p, menunjang m, karyawan k, indikator_tujuan i, tujuan t WHERE p.NIP=k.NIP AND p.id_proker=m.id_proker AND m.id_indikator_tujuan=i.id_indikator_tujuan AND i.id_tujuan=t.id_tujuan AND (p.status_proker='Belum terlaksana' OR p.status_proker='Proker baru') AND i.id_indikator_tujuan=".$_GET['idindikator']);
+						while ($data = mysql_fetch_array($query)){
+							$i++;
+							echo "<td>".$i."</td>
+								  <td>".ucwords($data['nama_proker'])."</td>
+								  <td>".ucwords($data['nama'])."</td>
+								  <td>".$data['waktu_mulai_proker']." - ".$data['waktu_akhir_proker']."</td>
+								  <td><a href=\"kaprodi_viewdetailproker.php?id=".$data['id_proker']."\">"."Detail</a> "."</td>
+								  </tr>";}
+							echo '</table>';
+						}
+						else
+						{
+						$i=0;
+						$query = mysql_query("SELECT distinct t.perspektif, p.id_proker, p.nama_proker, k.nama, DATE_FORMAT(p.waktu_mulai_proker, '%d/%m/%Y') AS waktu_mulai_proker, DATE_FORMAT(p.waktu_akhir_proker, '%d/%m/%Y') AS waktu_akhir_proker FROM proker p, menunjang m, karyawan k, indikator_tujuan i, tujuan t WHERE p.NIP=k.NIP AND p.id_proker=m.id_proker AND m.id_indikator_tujuan=i.id_indikator_tujuan AND i.id_tujuan=t.id_tujuan AND (p.status_proker='Belum terlaksana' OR p.status_proker='Proker baru')");
+						while ($data = mysql_fetch_array($query)){
+							$i++;
+							echo "<td>".$i."</td>
+								  <td>".ucwords($data['nama_proker'])."</td>
+								  <td>".ucwords($data['nama'])."</td>
+								  <td>".$data['waktu_mulai_proker']." - ".$data['waktu_akhir_proker']."</td>
+								  <td>".ucwords($data['perspektif'])."</td>
+								  <td><a href=\"kaprodi_viewdetailproker.php?id=".$data['id_proker']."\">"."Detail</a> "."</td>
+								  </tr>";}
+							echo '</table>';
+							}
+						?>
+					</tr>
+				</tbody>
+			</table>
+			</div><!-- /.box-body -->
+			
         </div>
 	</div>
 </div>
