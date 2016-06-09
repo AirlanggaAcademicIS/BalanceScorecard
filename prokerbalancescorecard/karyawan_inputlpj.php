@@ -47,7 +47,7 @@ $_SESSION['idnya']=$_GET['id'];
 	<img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 		<br></br>
     <p><a href="karyawan_viewlpj.php"> <button type="button" class="btn btn-primary btn-block active ">View LPJ</button></a></p>
-	<p><button type="button" class="btn btn-primary btn-block disabled">Input LPJ</button></p>
+
     </div>
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Input Laporan Pertanggung Jawaban</h2>
