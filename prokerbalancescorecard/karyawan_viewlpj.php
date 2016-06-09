@@ -42,7 +42,7 @@
      <img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 		<br></br>
     	<p><button type="button" class="btn btn-primary btn-block disabled ">View LPJ</button></a></p>
-		<p><a href="karyawan_inputlpj.php"><button type="button" class="btn btn-primary btn-block actived">Input LPJ</button></a></p>
+		
     </div>
        <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Laporan Pertanggung Jawaban</h2>
@@ -74,7 +74,8 @@
                             <th>Aksi</th>
                         </tr>
                     </thead>
- <?php 
+ <?php
+if(isset($_POST['tahun']))
 if($_POST['tahun']!="Tahun"){	
 $queri="Select distinct l.id_lpj, p.nama_proker, l.evaluasi, l.keberlanjutan From laporan_pertanggung_jawaban l, proker p where l.id_proker=p.id_proker and YEAR(WAKTU_MULAI_PROKER) = \"".$_POST['tahun']."\"";
 $hasil=MySQL_query ($queri);    //fungsi untuk SQL  
