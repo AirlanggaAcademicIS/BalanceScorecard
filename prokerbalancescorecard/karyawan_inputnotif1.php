@@ -1,6 +1,6 @@
 <?php include "koneksi.php";
 session_start();
-$_SESSION['id']=$_GET['id'];?> //menyambungkan ke database
+$_SESSION['id']=$_GET['id'];?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,9 +25,9 @@ $_SESSION['id']=$_GET['id'];?> //menyambungkan ke database
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="index.php">Home</a></li>
+        <li><a href="index.php">Home</a></li>
         <li><a href="viewbsc.php">Balance Score Card</a></li>
-        <li class="active"><a href="karyawan_viewproker.php">Program Kerja</a></li>
+        <li><a href="karyawan_viewproker.php">Program Kerja</a></li>
         <li><a href="viewlpj.php">Laporan Pertanggung Jawaban</a></li>
       </ul>
       </li>
@@ -38,8 +38,7 @@ $_SESSION['id']=$_GET['id'];?> //menyambungkan ke database
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-     <p><button type="button" class="btn btn-primary btn-block disabled ">View Proker</button></p>
-	 <p><a href="inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
+     
     </div>
     
     <div class="col-sm-8 text-left"> 
