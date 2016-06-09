@@ -45,7 +45,7 @@ $_SESSION['id']=$_GET['id'];
 		<img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 		<br></br>
     	<p><a href="karyawan_viewproker.php"><button type="button" class="btn btn-primary btn-block active">View Proker</button></a></p>
-	 	<p><button type="button" class="btn btn-primary btn-block disabled">Detail Proker</button></p>
+	 	
     </div>
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Detail Program Kerja</h2>
