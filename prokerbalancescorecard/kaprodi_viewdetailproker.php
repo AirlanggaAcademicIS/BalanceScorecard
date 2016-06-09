@@ -45,7 +45,7 @@ $_SESSION['id']=$_GET['id'];
     <div class="col-sm-2 sidenav">
 		<img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 		<br></br>
-    	<p><a href="kaprodi_viewproker.php"><button type="button" class="btn btn-primary btn-block active">View Proker</button></p>
+    	<p><a href="kaprodi_viewproker.php"><button type="button" class="btn btn-primary btn-block active">View Proker</button></a></p>
 	 	<p><a href="kaprodi_inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
 	 	<p><a href="kaprodi_deleteproker.php"><button type="button" class="btn btn-primary btn-block active">Delete Proker</button></a></p>
     </div>
