@@ -39,8 +39,7 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-     <p><button type="button" class="btn btn-primary btn-block disabled ">View Proker</button></p>
-	 <p><a href="karyawan_inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
+     <p><a href="karyawan_viewlpj.php"><button type="button" class="btn btn-primary btn-block active">View LPJ</button></a></p>
     </div>
     
     <div class="col-sm-8 text-left"> 
