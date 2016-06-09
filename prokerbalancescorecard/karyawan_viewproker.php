@@ -46,7 +46,7 @@ session_start();
 		<img src="images/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 		<br></br>
     	<p><button type="button" class="btn btn-primary btn-block disabled ">View Proker</button></p>
-	 	<p><a href="karyawan_inputdetailproker.php"><button type="button" class="btn btn-primary btn-block active">Detail Proker</button></a></p>
+	 	
     </div>
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">View Program Kerja</h2>
