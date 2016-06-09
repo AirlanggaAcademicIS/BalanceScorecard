@@ -4,15 +4,14 @@ require('fpdf/fpdf.php');
 
 //Menampilkan data dari tabel di database
 
-$result=mysql_query("SELECT id_proker, nama_proker, tujuan, anggaran_dana, status_proker, waktu_mulai_proker, waktu_akhir_proker FROM proker 
-WHERE status_proker='TERLAKSANA' OR status_proker='TIDAK TERLAKSANA' ORDER BY id_proker") or die(mysql_error());
+$result=mysql_query("SELECT p.id_proker, p.nama_proker, k.nama, p.anggaran_dana, p.status_proker, p.waktu_mulai_proker, p.waktu_akhir_proker FROM proker p, karyawan k WHERE status_proker='TERLAKSANA' OR status_proker='TIDAK TERLAKSANA' AND p.nip=k.nip ORDER BY p.id_proker") or die(mysql_error());
 
 
 
 //Inisiasi untuk membuat header kolom
 $column_id = "";
 $column_nama = "";
-$column_tujuan = "";
+$column_karyawan = "";
 $column_dana = "";
 $column_status = "";
 $column_waktu_mulai = "";
@@ -24,7 +23,7 @@ while($row = mysql_fetch_array($result))
 {
     $id = $row["id_proker"];
     $nama = $row["nama_proker"];
-    $tujuan = $row["tujuan"];
+    $karyawan = $row["nama"];
     $anggaran_dana = $row["anggaran_dana"];
     $status = $row["status_proker"];
     $waktu_mulai = $row["waktu_mulai_proker"];
@@ -34,7 +33,7 @@ while($row = mysql_fetch_array($result))
 
     $column_id = $column_id.$id."\n";
     $column_nama = $column_nama.$nama."\n";
-    $column_tujuan = $column_tujuan.$tujuan."\n";
+    $column_karyawan = $column_karyawan.$karyawan."\n";
     $column_dana = $column_dana.$anggaran_dana."\n";
     $column_status = $column_status.$status."\n";
     $column_waktu_mulai = $column_waktu_mulai.$waktu_mulai."\n";
@@ -71,9 +70,9 @@ $pdf->Cell(5,8,'ID',1,0,'C',1);
 $pdf->SetX(10);
 $pdf->Cell(80,8,'Nama Proker',1,0,'C',1);
 $pdf->SetX(90);
-$pdf->Cell(80,8,'Tujuan',1,0,'C',1);
-$pdf->SetX(170);
-$pdf->Cell(30,8,'Anggaran Dana',1,0,'C',1);
+$pdf->Cell(70,8,'Koordinator',1,0,'C',1);
+$pdf->SetX(160);
+$pdf->Cell(40,8,'Anggaran Dana',1,0,'C',1);
 $pdf->SetX(200);
 $pdf->Cell(30,8,'Status',1,0,'C',1);
 $pdf->SetX(230);
@@ -98,11 +97,11 @@ $pdf->MultiCell(80,6,$column_nama,1,'L');
 
 $pdf->SetY($Y_Table_Position);
 $pdf->SetX(90);
-$pdf->MultiCell(80,6,$column_tujuan,1,'C');
+$pdf->MultiCell(70,6,$column_karyawan,1,'C');
 
 $pdf->SetY($Y_Table_Position);
-$pdf->SetX(170);
-$pdf->MultiCell(30,6,$column_dana,1,'C');
+$pdf->SetX(160);
+$pdf->MultiCell(40,6,$column_dana,1,'C');
 
 $pdf->SetY($Y_Table_Position);
 $pdf->SetX(200);
