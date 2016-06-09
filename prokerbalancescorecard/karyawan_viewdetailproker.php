@@ -166,11 +166,10 @@ $_SESSION['id']=$_GET['id'];
 		</div>
 	</div>
 </div>
-<div class="navbar navbar-inverse navbar-fixed-bottom">
-      <div class="container">
-      <p class="navbar-text center-block">&#169; Sistem Informasi Universitas Airlangga</p>
-      </div>
- </div>
+<footer class="container-fluid text-center">
+  <p>Sistem Informasi Universitas Airlangga</p>
+</footer>
+
 
 </body>
 </html>
