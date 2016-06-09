@@ -49,6 +49,14 @@ $_SESSION['id']=$_GET['id'];
     </div>
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">Detail Program Kerja</h2>
+       <?php
+if(isset($_POST['simpan'])){
+mysql_query("UPDATE `proker` SET `ANGGARAN_DANA`='".$_POST['anggaran']."',`LATAR_BELAKANG`='".$_POST['latarbelakang']."',`TUJUAN`='".$_POST['tujuan']."',`MEKANISME_DAN_RANCANGAN`='".$_POST['mekanisme_rancangan']."',`PENDAHULUAN`='".$_POST['pendahuluan']."', STATUS_PROKER='Belum terlaksana' WHERE ID_PROKER =".$_GET['id']);
+
+echo "<div class=\"form-group\"><div class=\"col-sm-12\"><div class=\"alert alert-success\">Data berhasil disimpan.</div></div></div>";
+				echo "<meta http-equiv='Refresh' content='0; url=karyawan_viewproker.php'>";
+}
+?>
        <form id="form2" name="form2" method="post" action="karyawan_inputdetailproker.php?id=<?php echo $_SESSION['id']?>">
 	  <div class="form-group">
       		<label class="control-label col-sm-2">ID Proker :</label>
@@ -163,11 +171,7 @@ $_SESSION['id']=$_GET['id'];
     <input type="submit" name="simpan" value="Simpan" class="btn btn-primary" style="float:right;"/><br><br><br><br><br>  
 	</div>
 	<form/>
-    <?php
-if(isset($_POST['simpan'])){
-mysql_query("UPDATE `proker` SET `ANGGARAN_DANA`='".$_POST['anggaran']."',`LATAR_BELAKANG`='".$_POST['latarbelakang']."',`TUJUAN`='".$_POST['tujuan']."',`MEKANISME_DAN_RANCANGAN`='".$_POST['mekanisme_rancangan']."',`PENDAHULUAN`='".$_POST['pendahuluan']."', STATUS_PROKER='Belum terlaksana' WHERE ID_PROKER =".$_GET['id']);
-}
-?>
+  
 			</div> 
 		</div>
 	</div>
