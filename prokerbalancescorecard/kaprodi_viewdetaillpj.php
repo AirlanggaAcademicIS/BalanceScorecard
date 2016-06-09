@@ -27,6 +27,7 @@
         <li><a href="kaprodi_viewbsc.php">Balance Score Card</a></li>
         <li><a href="kaprodi_viewproker.php">Program Kerja</a></li>
         <li class="active"><a href="kaprodi_viewlpj.php">Laporan Pertanggung Jawaban</a></li>
+        <li><a href="kaprodi_monitoring.php">Monitoring</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -40,7 +41,7 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
      <p><button type="button" class="btn btn-primary btn-block disabled ">View Proker</button></p>
-	 <p><a href="kaprodi_inputproker.php"><button type="button" class="btn btn-primary btn-block active">Input Proker</button></a></p>
+	 <p><a href="kaprodi_viewlpj.php"><button type="button" class="btn btn-primary btn-block active">View LPJ</button></a></p>
     </div>
     
     <div class="col-sm-8 text-left"> 
