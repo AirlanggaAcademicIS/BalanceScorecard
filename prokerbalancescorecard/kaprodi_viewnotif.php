@@ -60,7 +60,7 @@
               <tr>
                 <td>&nbsp; 
 				<?php
-			$queri="Select * From notifikasi n,proker p where p.ID_PROKER=".$_GET['id1']." and p.ID_NOTIFIKASI=n.ID_NOTIFIKASI";  //menampikan SEMUA data dari tabel notifikasi  
+			$queri="Select * From notifikasi where ID_NOTIFIKASI=".$_GET['id1'];  //menampikan SEMUA data dari tabel notifikasi  
 	  		$hasil=MySQL_query ($queri);
 			
 			
