@@ -40,7 +40,7 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-     <p><button type="button" class="btn btn-primary btn-block disabled ">View Proker</button></p>
+     
 	 <p><a href="kaprodi_viewlpj.php"><button type="button" class="btn btn-primary btn-block active">View LPJ</button></a></p>
     </div>
     
