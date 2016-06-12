@@ -106,6 +106,23 @@ include "koneksi.php"
 						?>
 					</td>
       			</tr>
+      			<tr>
+        			<td style="font-size:16px;"><b>Belum Terlaksana</b></td>
+      			</tr>
+      			<tr>
+        			<td>
+				<?php
+					if(isset($_POST['tahun'])){
+						$tahun = $_POST['tahun'];
+						$query = mysql_query("SELECT * FROM proker WHERE STATUS_PROKER='Belum Terlaksana' AND date_format(WAKTU_MULAI_PROKER, '%Y') = '$tahun' AND ID_NOTIFIKASI>0");
+						while ($data = mysql_fetch_array($query)){
+							echo "<a href=\"kaprodi_viewnotif.php?id1=".$data['ID_NOTIFIKASI']."\">".$data['NAMA_PROKER']."</a>";
+							echo "</br>";
+							}
+						}
+						?>
+					</td>
+      			</tr>
     		</tbody>
   		</table>
 		<!--<input type="submit" name="print" value="Print" class="btn btn-info">-->
