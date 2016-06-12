@@ -51,10 +51,17 @@ $_SESSION['id']=$_GET['id'];
             <h2 class="text-center">Detail Program Kerja</h2>
        <?php
 if(isset($_POST['simpan'])){
+if(empty(trim($_POST['pendahuluan']))||empty(trim($_POST['latarbelakang']))||empty(trim($_POST['tujuan']))||empty(trim($_POST['mekanisme_rancangan']))||empty(trim($_POST['anggaran'])))
+{
+	echo "<div class=\"form-group\"><div class=\"col-sm-12\"><div class=\"alert alert-danger alert alert-dismissable\">Data yang anda masukkan tidak lengkap</div>";
+}
+else
+{
 mysql_query("UPDATE `proker` SET `ANGGARAN_DANA`='".$_POST['anggaran']."',`LATAR_BELAKANG`='".$_POST['latarbelakang']."',`TUJUAN`='".$_POST['tujuan']."',`MEKANISME_DAN_RANCANGAN`='".$_POST['mekanisme_rancangan']."',`PENDAHULUAN`='".$_POST['pendahuluan']."', STATUS_PROKER='Belum terlaksana' WHERE ID_PROKER =".$_GET['id']);
 
 echo "<div class=\"form-group\"><div class=\"col-sm-12\"><div class=\"alert alert-success\">Data berhasil disimpan.</div></div></div>";
 				echo "<meta http-equiv='Refresh' content='0; url=karyawan_viewproker.php'>";
+				}
 }
 ?>
        <form id="form2" name="form2" method="post" action="karyawan_inputdetailproker.php?id=<?php echo $_SESSION['id']?>">
