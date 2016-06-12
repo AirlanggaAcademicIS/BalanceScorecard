@@ -71,51 +71,34 @@ include "koneksi.php";
     <div class="form-group">
       <label class="control-label col-sm-2">Program Kerja</label>
       <div class="col-sm-10">
-        <select class="form-control" id="proker" name="proker" onChange="this.form.submit()">
-        <option value="">--Pilih Proker--</option>
-
-      </select>
+        <p>
+          <select class="form-control" id="proker" name="proker" onChange="this.form.submit()">
+            <option value="">--Pilih Proker--</option>
+          </select>
+        </p>
       </div>
     </div>
-	<div class="form-group">
-    	<label class="control-label col-sm-2">Koordinator</label>
-    	<div class="col-sm-10">
-		<input type="text" name="harga" class="form-control" id="harga" placeholder="Nama Koordinator" disabled="disabled" value="">
-    	</div>
- 	</div>
-	<div class="form-group">
-    	<label class="control-label col-sm-2">Deskripsi</label>
-    	<div class="col-sm-10">
-		<textarea class="form-control" rows="5" id="comment" disabled="disabled"></textarea>
-    	</div>
- 	</div>
-	<div class="form-group">
-    	<label class="control-label col-sm-2">Anggaran Dana</label>
-    	<div class="col-sm-10">
-		<input type="text" name="dana" class="form-control" id="dana" placeholder="Anggaran Dana" disabled="disabled" value="">
-    	</div>
- 	</div>
-	<div class="form-group">
-    	<label class="control-label col-sm-2">Pelaksanaan</label>
-    	<div class="col-sm-10">
-		<input type="text" name="waktu" class="form-control" id="waktu" placeholder="Waktu Pelaksanaan" disabled="disabled" value="">
-    	</div>
- 	</div>
-	<input name="submit" type="submit" class="btn btn-default" value="hapus">
-	<?php
+<div class="form-group"></div>
+	<div class="form-group"></div>
+	<div class="form-group"></div>
+	<div class="form-group"></div>
+	<div align="right">
+	  <input name="submit" type="submit" class="btn btn-primary" value="Hapus">
+	  <?php
                 if (isset ($_POST['submit'])){
 				$delete = mysql_query("DELETE FROM proker where id_proker = '".$_POST['proker']."'");
+				$_SESSION['pesan']='data berhasil dihapus';
                 }
                 ?>
-      </select>
-		
-		
-        <script src="jquery-1.10.2.min.js"></script>
-        <script src="jquery.chained.min.js"></script>
-        <script>
+	  </select>
+	  
+	  
+	  <script src="jquery-1.10.2.min.js"></script>
+	  <script src="jquery.chained.min.js"></script>
+	  <script>
             $("#proker").chained("#tujuan");
         </script>
-		<script type="text/javascript">
+	  <script type="text/javascript">
 var htmlobjek;
 $(document).ready(function(){
 
@@ -133,17 +116,21 @@ $(document).ready(function(){
   });
 });
 
-</script>
-		
-
-    </div>
-  </div>
+        </script>
+	  
+	  
 </div>
-
-
+        </div>
+      </div>
+	  
+	  
+   </div>
+        </div>	 
+    </div>
+<div class="navbar navbar-inverse navbar-fixed-bottom">
 <footer class="container-fluid text-center">
   <p>Sistem Informasi Universitas Airlangga</p>
+</div>  
 </footer>
-
 </body>
 </html>
