@@ -90,7 +90,7 @@ while ($data = mysql_fetch_array ($hasil)){
         			<td>".$data[1]."</td>  
         			<td>".$data[2]."</td>  
         			<td>".$data[3]."</td>  
-					<td><a href=\"karyawan_viewdetaillpj.php?id=".$id."\">"."Detail</a> "." || <a href=download.php?download_file=".$data[0].".doc\">"."Download LPJ</a>"."</td>
+					<td><a href=\"karyawan_viewdetaillpj.php?id=".$data[0]."\">"."Detail</a> "." || <a href=download.php?download_file=".$data[0].".doc\">"."Download LPJ</a>"."</td>
         		</tr>   
         	";      
 			}
