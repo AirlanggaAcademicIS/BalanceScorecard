@@ -32,7 +32,7 @@
       <ul class="nav navbar-nav">
         <li ><a href="karyawan_home.php">Home</a></li>
         <li><a href="karyawan_viewbsc.php">Balance Score Card</a></li>
-        <li><a href="karyawan_proker.php">Program Kerja</a></li>
+        <li><a href="karyawan_viewproker.php">Program Kerja</a></li>
         <li class="active"><a href="karyawan_viewlpj.php">Laporan Pertanggung Jawaban</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
