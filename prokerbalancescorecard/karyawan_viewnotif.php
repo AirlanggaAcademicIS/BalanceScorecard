@@ -45,8 +45,7 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-     <p><button type="button" class="btn btn-primary btn-block disabled ">View LPJ</button></p>
-	 <p><a href="karyawan_inputlpj.php"><button type="button" class="btn btn-primary btn-block active">Input LPJ</button></a></p>
+     
     </div>
     <div class="col-sm-8 text-left"> 
             <h2 class="text-center">notification</h2>
