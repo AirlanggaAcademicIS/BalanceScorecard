@@ -153,9 +153,7 @@
 				?> 
      		 </div>
         </div>	    
-		<form action="print.php" method="post">
-         <input class="btn btn-primary" type="submit" nama="kirim" id="print" value="Print"/>
-        </form>
+		
     </div>
     </div>
 </div>
