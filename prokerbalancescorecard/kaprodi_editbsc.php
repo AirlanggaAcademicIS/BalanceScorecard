@@ -109,7 +109,7 @@ include "koneksi.php"
 			  <label>Perspektif yang baru</label>
 			<select name="Perspektifnew" style="width:100%" class="form-control" >
 			<option value="Pilih Perspektif"> Pilih Perspektif </option>
-				<option value="Customer"> Customer </option>
+				<option value="Pemangku kepentingan"> Pemangku kepentingan </option>
 				<option value="Finansial"> Finansial </option> 
 				<option value="Proses bisnis intenal">Proses bisnis intenal </option> 
 				<option value="Pertumbuhan dan pembelajaran"> Pertumbuhan dan pembelajaran </option>  
