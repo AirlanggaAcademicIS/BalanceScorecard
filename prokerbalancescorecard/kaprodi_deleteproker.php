@@ -60,9 +60,9 @@ include "koneksi.php";
         <select class="form-control" id="tujuan" name="tujuan">
         <option value="">--Pilih Tujuan--</option>
 						<?php
-                $tujuan = mysql_query("SELECT tujuan_organisasi, id_tujuan FROM tujuan ORDER BY tujuan_organisasi");
+                $tujuan = mysql_query("SELECT TUJUAN_ORGANISASI, ID_TUJUAN FROM tujuan ORDER BY TUJUAN_ORGANISASI");
                 while ($t = mysql_fetch_array($tujuan)) {
-                echo "<option value=\"$t[id_tujuan]\">$t[tujuan_organisasi]</option>\n"; 
+                echo "<option value=\"$t[ID_TUJUAN]\">$t[TUJUAN_ORGANISASI]</option>\n"; 
                 }
                 ?>
       </select>
@@ -86,7 +86,7 @@ include "koneksi.php";
 	  <input name="submit" type="submit" class="btn btn-primary" value="Hapus">
 	  <?php
                 if (isset ($_POST['submit'])){
-				$delete = mysql_query("DELETE FROM proker where id_proker = '".$_POST['proker']."'");
+				$delete = mysql_query("DELETE FROM proker where ID_PROKER = '".$_POST['proker']."'");
 				$_SESSION['pesan']='data berhasil dihapus';
                 }
                 ?>
