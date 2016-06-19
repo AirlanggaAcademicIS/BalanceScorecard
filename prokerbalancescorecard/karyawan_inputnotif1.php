@@ -46,7 +46,7 @@ $_SESSION['id']=$_GET['id'];?>
         	<div class="form-group">
       			<label class="control-label col-sm-2">Nama Proker :</label>
       		<div class="col-sm-10">
-           <?php
+            <?php
 			$queri="Select * From proker where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel 
 	  		$hasil=MySQL_query ($queri);
 			
@@ -62,31 +62,54 @@ $_SESSION['id']=$_GET['id'];?>
      		  <form name="notif" method="post" action="karyawan_inputnotif1.php?id=<?php echo $_SESSION['id'];?>" >
               <textarea name="Notifikasi" rows="5" class="form-control" id="dp" type="text">
         	  </textarea>
-     		  <br><div class="col-sm-14 text-right">
-    <input class="btn btn-primary" type="submit" name="Submit" value="Simpan"/><br>
+     		  <br><div class="col-sm-14">
+			  
+			  <div class="radio">
+<label><input type="radio" name="optradio" value="belum terlaksana">Belum terlaksana</label>
+<label><input type="radio" name="optradio" value="tidak terlaksana">Tidak terlaksana</label>
+</div>
+
+			 
+    <input class="btn btn-primary" type="submit" name="Submit" value="Simpan" style="float:right"/></div><br>
        <form/>
 		<?php 
 		if(isset($_POST['Submit']))
 		{
-			if($_POST['Notifikasi']!="")
+			if(empty(trim($_POST['Notifikasi']))||(!isset($_POST['optradio'])))
+			{
+				echo "<br><div class=\"form-group\"><div class=\"col-sm-14\"><div class=\"alert alert-danger alert alert-dismissable\">";
+				if(empty(trim($_POST['Notifikasi'])))
+				{echo "Notifikasi belum diinputkan<br>";}
+				if(!isset($_POST['optradio']))
+				{echo "Status belum terpilih";}
+				echo "</div>";
+				
+			}
+			else
 			{
 				$sql = "INSERT INTO notifikasi (NOTIFIKASI,ID_PROKER) VALUES ('".$_POST['Notifikasi']."',".$_GET['id'].")";// db
 				mysql_query($sql);
 				
 				echo "<meta http-equiv='Refresh' content='0; url=karyawan_viewproker.php'>";
-				echo "<div class=\"form-group\"><div class=\"col-sm-12\"><div class=\"alert alert-success\">Data berhasil disimpan.</div></div></div>";
+				echo "<br><div class=\"form-group\"><div class=\"col-sm-14\"><div class=\"alert alert-success\">Data berhasil disimpan.</div></div></div>";
+		
+		
+				$queri="Select * From notifikasi where ID_PROKER=".$_GET['id']." ORDER BY ID_NOTIFIKASI DESC";  //menampikan SEMUA data dari tabel 
+	  			$hasil=mysql_query ($queri);
+				$data= mysql_fetch_array($hasil);
+				if($_POST['optradio']=="belum terlaksana"){
+					mysql_query("UPDATE `proker` SET `ID_NOTIFIKASI`='".$data['ID_NOTIFIKASI']."', STATUS_PROKER ='Belum terlaksana' WHERE ID_PROKER =".$_GET['id']);
+				}
+				else
+				{
+					mysql_query("UPDATE `proker` SET `ID_NOTIFIKASI`='".$data['ID_NOTIFIKASI']."', STATUS_PROKER ='Tidak terlaksana' WHERE ID_PROKER =".$_GET['id']);
+				}
 			}
-			else
-			{
+		
 			
-			}
 			
 		}
-		$queri="Select * From notifikasi where ID_PROKER=".$_GET['id'];  //menampikan SEMUA data dari tabel 
-	  		$hasil=mysql_query ($queri);
-			$data= mysql_fetch_array($hasil);
-			 
-		mysql_query("UPDATE `proker` SET `ID_NOTIFIKASI`='".$data['ID_NOTIFIKASI']."', STATUS_PROKER ='Tidak terlaksana' WHERE ID_PROKER =".$_GET['id']);    
+		    
   
 		?>
        </div>
