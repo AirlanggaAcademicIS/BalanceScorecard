@@ -99,7 +99,7 @@
 			$queri1="Select p.ANGGARAN_DANA From laporan_pertanggung_jawaban l, proker p wherel.ID_LPJ=p.ID_LPJ and l.ID_LPJ=".$_GET['id'];
 	  		$hasil1=MySQL_query ($queri1);
 			while ($data = mysql_fetch_array ($hasil1)){
-				echo "<input type='text'  class='form-control' id='ad' disabled value='".$data['anggaran_dana']."'><br>";
+				echo "<input type='text'  class='form-control' id='ad' disabled value='".$data['ANGGARAN_DANA']."'><br>";
 			}
 				?> 
      		 </div>
