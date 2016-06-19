@@ -98,10 +98,10 @@
       			<label class="control-label col-sm-2">Anggaran dana :</label>
       		<div class="col-sm-10">
            	<?php
-			$queri1="Select p.anggaran_dana From laporan_pertanggung_jawaban l, proker p where p.id_proker=l.id_proker and l.ID_LPJ=".$_GET['id'];
+			$queri1="Select p.ANGGARAN_DANA From laporan_pertanggung_jawaban l, proker p where p.ID_PROKER=l.ID_PROKER and l.ID_LPJ=".$_GET['id'];
 	  		$hasil1=MySQL_query ($queri1);
 			while ($data = mysql_fetch_array ($hasil1)){
-				echo "<input type='text'  class='form-control' id='ad' disabled value='".$data['anggaran_dana']."'><br>";
+				echo "<input type='text'  class='form-control' id='ad' disabled value='".$data['ANGGARAN_DANA']."'><br>";
 			}
 				?> 
      		 </div>
@@ -110,22 +110,22 @@
       	<label class="control-label col-sm-2">Waktu :</label>
      	<div class="col-sm-5">
           <?php
-			$queri="Select p.waktu_mulai_proker From laporan_pertanggung_jawaban l, proker p where p.id_proker=l.id_proker and l.ID_LPJ=".$_GET['id'];  
+			$queri="Select p.WAKTU_MULAI_PROKER From laporan_pertanggung_jawaban l, proker p where p.ID_PROKER=l.ID_PROKER and l.ID_LPJ=".$_GET['id'];  
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
-				echo "<input type='text'  class='form-control' id='waktumulai' disabled value='".$data['waktu_mulai_proker']."'><br>";
+				echo "<input type='text'  class='form-control' id='waktumulai' disabled value='".$data['WAKTU_MULAI_PROKER']."'><br>";
 			}
 				?>    
       </div>
      
       <div class="col-sm-5">
          <?php
-			$queri="Select p.waktu_akhir_proker From laporan_pertanggung_jawaban l, proker p where p.id_proker=l.id_proker and l.ID_LPJ=".$_GET['id'];  
+			$queri="Select p.WAKTU_AKHIR_PROKER From laporan_pertanggung_jawaban l, proker p where p.ID_PROKER=l.ID_PROKER and l.ID_LPJ=".$_GET['id'];  
 	  		$hasil=MySQL_query ($queri);
 			
 			while ($data = mysql_fetch_array ($hasil)){
-				echo "<input type='text'  class='form-control' id='waktuberakhir' disabled value='".$data['waktu_akhir_proker']."'><br>";
+				echo "<input type='text'  class='form-control' id='waktuberakhir' disabled value='".$data['WAKTU_AKHIR_PROKER']."'><br>";
 			}
 				?>    
       </div>	
