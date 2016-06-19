@@ -78,7 +78,7 @@ session_start();?>
  <?php
 if(isset($_POST['tahun']))
 if($_POST['tahun']!="Tahun"){	
-$queri="Select distinct l.id_lpj, p.nama_proker, l.evaluasi, l.keberlanjutan From laporan_pertanggung_jawaban l, proker p where l.id_proker=p.id_proker and YEAR(WAKTU_MULAI_PROKER) = \"".$_POST['tahun']."\" and p.nip='".$_SESSION['login_user']."'";
+$queri="Select distinct l.ID_LPJ, p.NAMA_PROKER, l.EVALUASI, l.KEBERLANJUTAN From laporan_pertanggung_jawaban l, proker p where l.ID_PROKER=p.ID_PROKER and YEAR(WAKTU_MULAI_PROKER) = \"".$_POST['tahun']."\" and p.nip='".$_SESSION['login_user']."'";
 $hasil=MySQL_query ($queri);    //fungsi untuk SQL  
 $id = 0;
 while ($data = mysql_fetch_array ($hasil)){  
